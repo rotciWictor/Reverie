@@ -3,12 +3,11 @@ const queries = require("../modules/queries.js");
 const router = require("express").Router();
 
 router.get("/read", async (req, res) => {
+  const usuarios = await dbConnection.query(queries.getAllUserData);
 
-    const usuarios = await dbConnection.query(queries.getAllUserData);
-  
-    console.log(usuarios);
-  
-    res.json(usuarios);
-  });
+  console.log(usuarios);
 
-  module.exports = router;
+  res.json(usuarios);
+});
+
+module.exports = router;
