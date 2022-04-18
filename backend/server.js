@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const router = require("express").Router();
 const created = require("./routes/create.js");
 const read = require("./routes/read");
 const deleted = require("./routes/delete.js");
