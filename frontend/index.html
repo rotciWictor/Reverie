@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta property="og:title" content="Reverie">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Reverie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class='defaultbg'>
+        <div class='header'>
+            <img id="mainHeaderLogo" src="./src/img/main_logo.svg">
+            <div id='insideHeader'>
+                <p id="homeBtn">Home</p>
+                <p id="catalogueBtn">Produtos</p>
+                <p id="contactBtn">Contato</p>
+                <p id="aboutUsBtn">Sobre nós</p>
+                <img id="profileLogo" width="50px" height="50px" src="./src/img/profile.png">
+                <img id="cartLogo" width="50px" height="40px" src="./src/img/cartLogo.png">
+            </div>
+        </div>
+
+        <section id='homepage' name='homepage'>
+                <h1 id="firstTitle">
+                    Realizamos seu sonho etc etc
+                </h1>
+                <div id="firstBox">
+                    <img width="700px" height="450px" src="./src/img/astronaut.svg">
+                    <div id="astronautText">
+                        <h1> Tens um sonho?</h1>
+                        <h3>Realizamos com você! por apenas alguns centavos de milhões organizamos sua vida e torno de
+                            realizar seus sonhos! Nossos pacotes são feitos pensando no tempo médio gasto para a
+                            realização
+                            dos seus objetivos, e planejamos sua vida de acordo!</h3>
+                    </div>
+                </div>
+        </section>
+
+        <section id='registerPG'>
+            <div id="registerForms">
+                <form>
+                    <img id="mainHeaderLogo" src="./src/img/main_logo.svg">
+                    <input placeholder="Nome" class="registerBox" type="text" id="name" name="name"><br><br>
+                    <input placeholder="E-Mail" class="registerBox" type="text" id="email" name="email"><br><br>
+                    <input placeholder="Telefone" class="registerBox" type="text" id="phone" name="phone"><br><br>
+                    <input placeholder="Endereço" class="registerBox" type="text" id="address" name="adress"><br><br>
+                    <input placeholder="Senha" class="registerBox" type="text" id="password" name="password"><br><br>
+                    <input placeholder="Confirme a senha" class="registerBox" type="text" id="password"
+                        name="password"><br><br>
+                    <input type="submit" id="registerSubmit" value="Registrar">
+                </form>
+            </div>
+        </section>
+
+        <section id='loginPG'>
+            <div id="loginForms">
+                <form>
+                    <img id="mainHeaderLogo" src="./src/img/main_logo.svg">
+                    <input placeholder="Nome" class="loginBox" type="text" id="name" name="name"><br><br>
+                    <input placeholder="E-Mail" class="loginBox" type="text" id="email" name="email"><br><br>
+                    <span>
+                        <p id="loginSubtext">Esqueci minha senha</p>
+                    </span>
+                    <input type="submit" id="loginSubmit" value="Entrar">
+                    <span>
+                        <p id="loginButtonSubtext">Ainda não sou cadastrado</p>
+                    </span>
+                </form>
+            </div>
+        </section>
+
+        <section id='profilePG'>
+            <div id="profileInfos">
+                <div id="optionsBox">
+                    <button class="profileButtons">Seus Dados</button>
+                    <button class="profileButtons">Carrinho</button>
+                    <button class="profileButtons">Pedidos</button>
+                    <button class="profileButtons">Cartões</button>
+                    <button class="profileButtons">Sair</button>
+
+                </div>
+                <div id="personalData">
+                    <h4 class="profileHeaderText">Dados Pessoais</h4>
+                    <label for="profileName">Nome Completo</label><br><br>
+                    <input class="personalDataBox" type="text" id="profileName" name="name"><br><br>
+                    <label for="birthDate">Data de Nascimento</label><br><br>
+                    <input class="personalDataBox" type="text" id="birthDate" name="name"><br><br>
+                    <label for="registerNumber">CPF</label><br><br>
+                    <input class="personalDataBox" type="text" id="registerNumber" name="name"><br><br>
+                    <label for="profilePhone">Telefone</label><br><br>
+                    <input class="personalDataBox" type="text" id="profilePhone" name="name"><br><br>
+                </div>
+                <div id="acessData">
+                    <h4 class="profileHeaderText">Dados de Acesso</h4>
+                    <label for="profileEmail">E-mail atual</label><br><br>
+                    <input class="personalDataBox" type="text" id="profileEmail" name="name"><br><br>
+                    <button class="modifyLoginInfo">Alterar Email</button><br><br>
+                    <button class="modifyLoginInfo">Alterar Senha</button>
+
+                </div>
+            </div>
+        </section>
+
+        <section id='cartPG'>
+            <div id="cartOverBox">
+                <div id="cartProductBox">
+                    <div id="cartProductImage">
+                        <img src="./src/img/formulaone.png" width="315px" height="186px">
+                    </div>
+                    <div>
+                        <h3 id="cartProductTitle">
+                            Kit Piloto F1
+                        </h3>
+                        <p>
+                            Quantidade:
+                        </p>
+                        <h4>
+                            Valor:
+                        </h4>
+                    </div>
+                </div>
+                <div id="cartValueBox">
+                    <h3>
+                        Subtotal:
+                    </h3>
+                    <h3>
+                        R$100000;00
+                    </h3>
+                </div>
+                <div>
+                    <button id="submitOrder">Finalizar Pedido</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="catalogue">
+            <div class="itemContainer">
+                <div>
+                    <img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+                <div>
+                    <img width="250" height="175" src="./src/img/formulaone.png">
+                    <p class="itemTitle">Pacote Fórmula 1</p>
+                    <p class="itemPrice">R$500000,00</p>
+                    <p class="itemDiscount">15% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">Pacote para os amantes dos motores mais barulhentos que existem! </p>
+                </div>
+                <div>
+                    <img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+                <div><img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+            </div>
+            <div class="itemContainer">
+                <div>
+                    <img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+                <div>
+                    <img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+                <div>
+                    <img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+                <div><img width="250" height="175" src="./src/img/hacker.png">
+                    <p class="itemTitle">Pacote Hacker</p>
+                    <p class="itemPrice">R$13337,33</p>
+                    <p class="itemDiscount">12% off</p>
+                    <p class="itemDiscount">Sem Frete</p>
+                    <p class="itemAddCartText">
+                        Adicionar ao carrinho
+                        <button class="itemAddCartButton">+</button>
+                        qntd
+                        <button class="itemAddCartButton">-</button>
+                    </p>
+                    <p class="itemDescription">O pacote hacker inclui desde o básico da programação, até níveis
+                        estratosféricos de algoritmos de quebra de criptografia.</p>
+                </div>
+            </div>
+
+    </div>
+    </section>
+
+    <section id="productPG">
+        <div></div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="./src/script.js"></script>
+</body>
+
+</html>
