@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/rotciWictor/Reverie#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "path": "^0.12.7",
