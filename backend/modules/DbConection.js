@@ -6,7 +6,7 @@ const { Pool } = require("pg");
 const pool = new Pool({
   user: "postgres",
   host: "127.0.0.1",
-  database: "Reverie",
+  database: "Reverie2",
   max: 10,
   idleTimeoutMillis: 10000,
   connectionTimeoutMillis: 10000,
@@ -61,10 +61,7 @@ module.exports = {
   //and returns an array with the query result
   async query(queryString, parameters) {
     const client = await getClient();
-    // const start = Date.now();
     const response = await client.query(queryString, parameters);
-    // const duration = Date.now() - start;
-    // console.log('Query executada!', {queryString, duration, rows: response.rowCount});
     client.release();
     return response.rows;
   },
