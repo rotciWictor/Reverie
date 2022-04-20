@@ -5,7 +5,7 @@ const { Pool } = require("pg");
 //so they are not exposed in code)
 const pool = new Pool({
   user: "postgres",
-  host: "192.168.0.105",
+  host: "127.0.0.1",
   database: "Reverie",
   max: 10,
   idleTimeoutMillis: 10000,
