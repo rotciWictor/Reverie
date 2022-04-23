@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 3000;
 const created = require("./routes/create");
 const read = require("./routes/read");
 // const deleted = require("./routes/delete.js");

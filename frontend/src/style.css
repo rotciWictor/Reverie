@@ -16,7 +16,7 @@ p, h3 {
     width: 100%;
     height: 100%;
     background-color: rgba(243, 187, 221, 63%);
-    background-image: url(./src/img/mainpageBG.png);
+    background-image: url(./img/mainpageBG.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
