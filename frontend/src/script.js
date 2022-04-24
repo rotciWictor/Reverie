@@ -1,5 +1,3 @@
-// const showcase = $('#showcase')
-
 //Botões de transição de page//
 $("#homeBtn").click(function () {
   $("#homepage").fadeIn();

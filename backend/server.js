@@ -8,6 +8,7 @@ const read = require("./routes/read");
 // const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+
 const corsOptions = { credentials: true, origin: process.env.URL || "*" };
 app.use(cors(corsOptions));
 // app.use(cookieParser());
