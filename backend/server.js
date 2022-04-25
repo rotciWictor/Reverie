@@ -1,13 +1,12 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const created = require("./routes/create");
-const read = require("./routes/read");
-// const deleted = require("./routes/delete.js");
-// const updated = require("./routes/update.js");
+const create = require("./routes/products/create");
+const read = require("./routes/products/read");
+// const delete = require("./routes/products/delete");
+// const update = require("./routes/products/update");
 // const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
 
 const corsOptions = { credentials: true, origin: process.env.URL || "*" };
 app.use(cors(corsOptions));
@@ -15,10 +14,10 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/create", created);
+app.use("/create", create);
 app.use("/read", read);
-// app.use("/delete", deleted);
-// app.use("/update", updated);
+// app.use("/delete", delete);
+// app.use("/update", update);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`);

@@ -1,6 +1,8 @@
 //Botões de transição de page//
 $("#homeBtn").click(function () {
   $("#homepage").fadeIn();
+  $("#bottom").css("margin-top", "990px");
+  $(".defaultbg").css("background-size", "contain");
 
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
@@ -13,13 +15,14 @@ $("#homeBtn").click(function () {
 });
 
 $("#mainHeaderLogo").click(function () {
-  $("#homepage").fadeIn();
+  $("#homepage").fadeOut();
 
+  $(".defaultbg").css("background-size", "contain");
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
-  $("#productPG").fadeOut();
+  $("#productPG").fadeIn();
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
@@ -27,8 +30,11 @@ $("#mainHeaderLogo").click(function () {
 
 $("#catalogueBtn").click(function () {
   getProducts();
+
   $("#catalogue").fadeIn();
 
+  $("#bottom").css("margin-top", "150px");
+  $(".defaultbg").css("background-size", "cover");
   $("#homepage").fadeOut();
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
@@ -40,16 +46,9 @@ $("#catalogueBtn").click(function () {
 });
 
 $("#contactBtn").click(function () {
-  $("#contactPG").fadeIn();
-
-  $("#catalogue").fadeOut();
-  $("#homepage").fadeOut();
-  $("#registerPG").fadeOut();
-  $("#loginPG").fadeOut();
-  $("#profilePG").fadeOut();
-  $("#cartPG").fadeOut();
-  $("#productPG").fadeOut();
-  $("#aboutUsPG").fadeOut();
+  $("html, body").animate({
+    scrollTop: $("#bottom").offset().top,
+  });
 });
 
 $("#product1").click(function () {
@@ -84,6 +83,8 @@ $("#product2").click(function () {
 
 $("#aboutUsBtn").click(function () {
   $("#aboutUsPG").fadeIn();
+  $("#bottom").css("margin-top", "200px");
+  $(".defaultbg").css("background-size", "cover");
 
   $("#productPG").fadeOut();
   $("#hackerProductPG").fadeOut();
@@ -98,6 +99,8 @@ $("#aboutUsBtn").click(function () {
 
 $("#profileLogo").click(function () {
   $("#loginPG").fadeIn();
+  $("#bottom").css("margin-top", "1000px");
+  $(".defaultbg").css("background-size", "cover");
 
   $("#aboutUsPG").fadeOut();
   $("#productPG").fadeOut();
@@ -105,6 +108,21 @@ $("#profileLogo").click(function () {
   $("#catalogue").fadeOut();
   $("#homepage").fadeOut();
   $("#registerPG").fadeOut();
+  $("#profilePG").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#contactPG").fadeOut();
+});
+
+$("#loginButtonSubtext").click(function () {
+  $("#registerPG").fadeIn();
+
+  $(".defaultbg").css("background-size", "cover");
+  $("#aboutUsPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#hackerProductPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#homepage").fadeOut();
+  $("#loginPG").fadeOut();
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
   $("#contactPG").fadeOut();
@@ -113,55 +131,126 @@ $("#profileLogo").click(function () {
 $("#cartLogo").click(function () {
   $("#cartPG").fadeIn();
 
-  $("#aboutUsPG").fadeOut();
-  $("#productPG").fadeOut();
-  $("#hackerProductPG").fadeOut();
-  $("#catalogue").fadeOut();
-  $("#homepage").fadeOut();
+  $("#bottom").css("margin-top", "270px");
+  $(".defaultbg").css("background-size", "cover");
   $("#registerPG").fadeOut();
-  $("#profilePG").fadeOut();
+  $("#homepage").fadeOut();
   $("#loginPG").fadeOut();
+  $("#profilePG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
 });
 
-$("#loginButtonSubtext").click(function () {
-  $("#registerPG").fadeIn();
+$("#loginSubmit").click(function () {
+  $("#loginPG").fadeIn();
 
-  $("#aboutUsPG").fadeOut();
-  $("#productPG").fadeOut();
-  $("#hackerProductPG").fadeOut();
-  $("#catalogue").fadeOut();
+  $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
-  $("#loginPG").fadeOut();
-  $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
+  $("#profilePG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+});
+
+$("#registerSubmit").click(function () {
+  $("#profilePG").fadeIn();
+
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+});
+
+$(".learnMoreBtn").click(function () {
+  $("#aboutUsPG").fadeIn();
+  $("#bottom").css("margin-top", "200px");
+  $(".defaultbg").css("background-size", "cover");
+  $("html, body").animate({
+    scrollTop: $(".header").offset().top,
+  });
+
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#profilePG").fadeOut();
 });
 
 // load products
-// const products = [];
 
 async function getProducts() {
   const response = await fetch(`http://localhost:3000/read`);
   const products = await response.json();
-
+  let counter = 0;
+  const showcase = document.getElementById("showcase");
+  while (showcase.firstChild) {
+    showcase.removeChild(showcase.firstChild);
+  }
   products.forEach((element) => {
     const newProduct = `<div>
-    <img id="product3" width="250" height="175" src='${element.imagem}'/>
-    <p class="itemTitle">${element.nome}</p>
-    <p class="itemPrice">${element.preco}</p>
-    <p class="itemDiscount">12% off</p>
-    <p class="itemDiscount">Sem Frete</p>
-    <p class="itemAddCartText">
-        Adicionar ao carrinho
-        <button class="itemAddCartButton">+</button>
-        qntd
-        <button class="itemAddCartButton">-</button>
-    </p>
-    <p class="itemDescription">${element.descricao}</p>
-    </div>`;
+      <img id="product${++counter}" width="250" height="175" src='${
+      element.imagem
+    }'/>
+      <p class="itemTitle">${element.nome}</p>
+      <p class="itemPrice">${element.preco}</p>
+      <p class="itemDiscount">12% off</p>
+      <p class="itemDiscount">Sem Frete</p>
+      <p class="itemDescription">${element.descricao}</p>
+      </div>`;
 
-    const showcase = document.getElementById("showcase");
     showcase.innerHTML += newProduct;
   });
+}
+
+// session control
+
+let accessToken = '';
+let api_url = '/api';
+const divLogin = document.getElementById("div-login");
+const formLogin = document.getElementById("form-login");
+// const buttonGetUsers = document.getElementById("button-get-users");
+// const buttonDeleteToken = document.getElementById("button-delete-token");
+const pStatus = document.getElementById("login-status");
+
+let showLoginPanel = (bShow) => {
+  bShow ? divLogin.style.display = "flex" : divLogin.style.display = "none";
+}
+
+formLogin.onsubmit = async e => {
+  e.preventDefault();
+  const loginDetails = await login({ email: formLogin.email.value, password: formLogin.password.value });
+  console.log(loginDetails);
+  if (loginDetails.error) {
+    pStatus.innerText = loginDetails.error;
+    return;
+  }
+  accessToken = loginDetails.accessToken;
+  const jwtDecoded = jwtDecode(accessToken);
+  pStatus.innerHTML = `Conectado!`;
+  showLoginPanel(false);
+}
+
+async function login(data) {
+  //console.log(JSON.stringify(data));
+  const res = await fetch(`${api_url}/auth/login`, {
+    method: 'POST',
+    credentials:'include',
+    cache:'no-cache',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  return await res.json();
 }

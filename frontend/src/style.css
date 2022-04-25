@@ -7,6 +7,10 @@ img, body {
     margin: 0;
 }
 
+body {
+    height: 100%;
+}
+
 p, h3 {
     font-style: none;
     margin: 0%;
@@ -15,14 +19,17 @@ p, h3 {
 .defaultbg {
     width: 100%;
     height: 100%;
-    background-color: rgba(243, 187, 221, 63%);
-    background-image: url(./img/mainpageBG.png);
+    background-image: url(./img/homepagebg.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+   
 }
 
 #homepage {
     display: block;
+    color: white;
+    height: 1000px;
+   
 }
 
 #registerPG {
@@ -45,10 +52,6 @@ p, h3 {
     display: none;
 }
 
-#contactPG {
-    display: none;
-}
-
 #aboutUsPG {
     display: none;
 }
@@ -63,34 +66,52 @@ p, h3 {
 .header {
     width: 100%;
     height: 75px;
-    background-color: rgba(248, 32, 200, 37%);
+    background-color: rgba(255, 255, 255, 0);
     display: flex;
+
     
 }
 
+#homeBtn {
+    color: rgb(147, 94, 178);
+}
 #homeBtn:hover {
+    color: rgb(95, 57, 117);
     cursor: pointer;
 }
 
 #catalogueBtn:hover {
+    color: rgb(147, 94, 178);
     cursor: pointer;
 }
 
 #contactBtn:hover {
+    color: rgb(147, 94, 178);
     cursor: pointer;
 }
 
 #aboutUsBtn:hover {
+    color: rgb(147, 94, 178);
     cursor: pointer;
 }
 
 #profileLogo:hover {
+    color: rgb(147, 94, 178);
+    cursor: pointer;
+}
+
+#cartLogo:hover {
+    color: rgb(147, 94, 178);
     cursor: pointer;
 }
 
 #mainHeaderLogo {
     display: flex;
-    margin-top: 25px;
+    position: absolute;
+    top: 0px;
+    left: 190px;
+    width: 210px; 
+    height: 210px;
 
 }
 
@@ -100,9 +121,10 @@ p, h3 {
     column-gap: 17px;
     align-items: center;
     justify-content: space-between;
-    margin-left: 45%;
-    font-size: 22px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 50%;
+    font-size: 18px;
+    font-family: 'Forum', cursive;
+    color: white;
     
 }
 
@@ -119,22 +141,17 @@ p, h3 {
     cursor: pointer;
 }
 
-#firstTitle {
-    display: flex;
-    margin-left: 15%;
-    margin-top: 9%;
-    font-family: 'Forum', cursive;
-    font-weight: bold;
-}
 
 #firstBox {
-    width: 1000px;
-    height: 800px;
+    width: 412px;
+    height: 230px;
     display: flex;
     align-items: space-between;
     justify-content: space-between;
-    margin-left: 50px;
+    margin-left: 160px;
+    margin-top: 110px;
     font-family: 'Forum', cursive;
+    text-align: justify;
 }
 
     #astronautText {
@@ -142,77 +159,270 @@ p, h3 {
         
     }
 
+.learnMoreBtn {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(147, 94, 178);
+    color: white;
+    border-style: none;
+    border-color: rgb(147, 94, 178);
+    font-family: 'Poppins', sans-serif;
+    }
+
+.learnMoreBtn:hover {
+    cursor: pointer;
+    background-color: rgb(92, 33, 91);
+    
+}
+
+#secondBox {
+    display: block;
+    margin-top: 200px;
+    width: 100%;
+    height: 800px;
+    background-color: lightgray;
+    
+
+}    
+      #secondBoxImg {
+          display: flex;
+          position: absolute;
+          left: 150px;
+          top: 730px;
+          height: 524px;
+          width: 562px;
+      }
+
+      #secondBoxText {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: black;
+          position: absolute;
+          width: 455px;
+          height: 450px;
+          left: 580px;
+          top: 750px;
+          padding: 40px;
+          border-style: solid;
+          border-width: 13px;
+          border-color: rgb(92, 33, 91);
+          font-family: 'Forum', cursive;
+          color: rgb(48, 59, 64);
+          text-align: justify;
+      }
+
+      #insideSecondBox {
+         margin-left: 25%;
+         
+      }
+      
+#thirdBox {
+    text-align: center;
+   
+}   
+     #thirdBoxTitle {
+         display: block;
+         width: 100%;
+         background-color: rgb(188, 172, 210);
+         color: black;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0;
+         flex-direction: column;
+         font-size: 38px;
+         font-family: 'Forum', cursive;
+         color: rgb(48, 59, 64);
+     }  
+     #thirdBoxTitleLine {
+         display: flex;
+         width: 180px;
+         height: 10px;
+         background-color: rgb(92, 33, 91);
+         margin-left: 35px;
+         
+     }
+     #thirdBoxBoxes {
+        display: flex;
+        width: 100%;
+        height: 600px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(188, 172, 210);
+        font-family: 'Forum', cursive;
+        
+     } 
+         #serviceBoxOne {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(20, 22, 27); 
+             flex-direction: column;
+         }
+         #serviceBoxTwo {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(91, 111, 118);
+             float: right;
+
+             flex-direction: column;
+         }
+         #serviceBoxThree {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(147, 181, 196);
+             float: right;
+
+            flex-direction: column;
+         }
+         #serviceBoxFour {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(183, 223, 237);
+             float: right;
+             row-gap: 30px;
+             flex-direction: column;
+         }
+         .serviceBoxesInside {
+             padding: 5px;
+             margin-left: 50px;
+             margin-right: 80px;
+         }
+        
+         
+
 #registerForms {
     display: flex;
+    position: absolute;
+    padding: 20px;
+    margin-left: 320px;
+    margin-top: 130px;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    margin-top: 50px;
-    row-gap: 30px;
-    height: 900px;
-
+    width: 550px;
+    height: 700px;
+    background-color: #ba9a8e;
+    background-image: linear-gradient(315deg, #ba9a8e 0%, #96705b 74%);
 }
 
 .registerBox{
-    width: 444px;
-    height: 41px;
-    border-radius: 50px;
-    background-color: #D4DDDC;
-    border-color: #D4DDDC;
-    box-shadow: #D4DDDC;
-    font-family: 'Poppins', sans-serif;
-    font-style: bolder;
-    font-size: 15px;
-    color: #5D949E;
-    box-shadow: 0;
+         width: 444px;
+         height: 41px;
+         background-color:#96705b;
+         font-family: 'Poppins', sans-serif;
+         font-style: bolder;
+         font-size: 16px;
+         color: black;
+         box-shadow: 0;
+         border-left: none;
+         border-top: none;
+         border-right: none;
+         border-bottom-color: gray;
 }
+     .registerBox::placeholder {
+         color: black;
+     }
 
 #registerSubmit {
     width: 303px;
     height: 53px;
-    border-radius: 50px;
-    margin-left: 60px;
-    background-color: #560BAD;
+    margin-left: 90px;
+    background-color: #ba9a8e;
+    background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+    font-family: 'Poppins', sans-serif;
     color: white;
     font-size: 24px;
     box-shadow: 0;
+    border-style: none;
 
 }
+#registerSubmit:hover {
+    background-color: #95796f;
+    background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+      cursor: pointer;
+  }
 
 #loginForms {
     display: flex;
+    position: absolute;
+    padding: 20px;
+    margin-left: 320px;
+    margin-top: 130px;
     align-items: center;
     justify-content: center;
-    height: 800px;
+    width: 550px;
+    height: 700px;
+    background-color: #ba9a8e;
+    background-image: linear-gradient(315deg, #ba9a8e 0%, #96705b 74%);
+
+}
+
+#loginTitleTxt {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    left: 140px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', 'sans-serif';
+    font-size: 46px;
 
 }
 
     .loginBox {
          width: 444px;
          height: 41px;
-         border-radius: 50px;
-         background-color: #D4DDDC;
-         border-color: #D4DDDC;
-         box-shadow: #D4DDDC;
+         background-color:#96705b;
          font-family: 'Poppins', sans-serif;
          font-style: bolder;
-         font-size: 15px;
-         color: #5D949E;
+         font-size: 16px;
+         color: black;
          box-shadow: 0;
+         border-left: none;
+         border-top: none;
+         border-right: none;
+         border-bottom-color: gray;
+
+     }
+     .loginBox::placeholder {
+         color: black;
      }
           #loginSubtext {
               font-family: 'Poppins', sans-serif;
               margin-bottom: 20px;
           }
+          #loginSubtext {
+              cursor: pointer;
+          }
           #loginSubmit {
             width: 303px;
             height: 53px;
-            border-radius: 50px;
-            margin-left: 60px;
-            background-color: #560BAD;
+            margin-left: 90px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
             color: white;
             font-size: 24px;
             box-shadow: 0;
+            border-style: none;
+          }
+          #loginSubmit:hover {
+            background-color: #95796f;
+            background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+              cursor: pointer;
           }
          #loginButtonSubtext {
             font-family: 'Poppins', sans-serif;
@@ -294,7 +504,7 @@ p, h3 {
     display: flex;
     width: 710px;
     height: 668px;
-    margin-top: 50px;
+    margin-top: 200px;
     margin-left: 30px;
     background-color: white;
     border-radius: 50px;
@@ -324,14 +534,14 @@ p, h3 {
     align-items: center;
     flex-direction: column;
     margin-right: 80px;
-    margin-bottom: 500px;
+    margin-bottom: 430px;
 }     
 
 #submitOrder {
     display: flex;
     position: absolute;
     left: 841px;   
-    bottom: 190px;
+    bottom: 130px;
     color: white;
     background-color: #CB94E4;
     font-size: 24px;
@@ -351,30 +561,46 @@ p, h3 {
 
 .itemContainer {
     display: flex;
-    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 120px;
 
 }
 
 .itemContainer > div {
     display: flex;
-    background-color: lightgrey;
+    background-color: #d3abe688;
     margin: 5px;
     padding: 5px;
     font-size: 30px;
-    width: 490px;
-    height: 400px;
+    width: 400px;
+    height: 360px;
     flex-direction: column;
     row-gap: 4px;
-    align-items: flex-start;
-    border-radius: 30px;
-   
+    align-items: center;
+    /* border-radius: 30px; */
+    border: solid purple 1px;
+    color: whitesmoke;
+    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+.itemContainer > div:hover{
+    transform: translateY(-10px);
+    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+}
 
+.itemContainer > div > p{
+    text-align: center;
 }
 
 .itemTitle {
     font-size: 22px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: bolder;
+    color:purple;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: whitesmoke
 }
 
 .itemDescription {
@@ -389,12 +615,13 @@ p, h3 {
 
 .itemDiscount {
     font-size: 16px;
-    color: green;
+    color: #c00606;
+    font-weight: bold;
 }
 
 .itemAddCartText {
     font-size: 12px;
-    color: darkgreen;
+    color: #810606;
 }
 
 .itemAddCartButton {
@@ -446,19 +673,13 @@ p, h3 {
     align-items: space-between;
     justify-content: center;
     margin-top: 100px;
-    height: 650px;
+    height: 450px;
 
 }
-     #contactBoxTitle {
-         display: flex; 
-         color: #180430;
-         font-family: 'Forum', cursive;
-         font-size: 32px;
-     }
+     
     .contactBox {
-         width: 444px;
-         height: 41px;
-         border-radius: 50px;
+         width: 250px;
+         height: 20px;
          background-color: #D4DDDC;
          border-color: #D4DDDC;
          box-shadow: #D4DDDC;
@@ -472,24 +693,13 @@ p, h3 {
               font-family: 'Poppins', sans-serif;
               margin-bottom: 20px;
           }
-          #loginSubmit {
-            width: 303px;
-            height: 53px;
-            border-radius: 50px;
-            margin-left: 60px;
-            background-color: #560BAD;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0;
-          }
          #loginButtonSubtext {
             font-family: 'Poppins', sans-serif;
             margin-left: 100px;
          }
          #messageBox {
-            width: 444px;
-            height: 150px;
-            border-radius: 50px;
+            width: 250px;
+            height: 60px;
             background-color: #D4DDDC;
             border-color: #D4DDDC;
             box-shadow: #D4DDDC;
@@ -499,6 +709,22 @@ p, h3 {
             color: #5D949E;
             box-shadow: 0;
          }
+         #messageSubmitBtn {
+            width: 253px;
+            height: 43px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
+         }
+         #messageSubmitBtn:hover{
+             cursor: pointer;
+             background-color: #95786e;
+            background-image: linear-gradient(315deg, #767a96 0%, #88687c 74%);
+         }
          
 #aboutUsText {
     display: flex;
@@ -506,10 +732,136 @@ p, h3 {
     justify-content: flex-start;
     flex-direction: column;
     row-gap: 12px;
-    margin-top: 90px;
-    height: 600px;
-    font-family: 'Poppins', 'sans-serif';
-    color: #180430;
+    margin-right: 400px;
+    margin-top: 100px;
+    height: 200px;
+    font-family: 'Forum', cursive;
+    color: white;
     font-weight: bold;
+    font-size: 38px;
 }
+
+#aboutUsFirstBox {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(148, 101, 57);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    column-gap: 100px;
+
+}
+
+#aboutUsFirstTxt {
+    width: 400px;
+    height: 300px;
+    text-align: justify;
+    row-gap: 100px;
+    font-family: 'Forum', cursive;
+
+}
+
+.aboutUsRow {
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    font-family: 'Forum', cursive;
+}
+
+     #aboutUsCitation {
+         display: flex;
+         margin-left: 330px;
+     }
+
+#aboutUsSecondBox{
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(170, 180, 93);
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 100px;   
+}
+      #aboutUsSecondTxt {
+        width: 400px;
+        height: 300px;
+        text-align: justify;
+        row-gap: 100px;
+        font-family: 'Forum', cursive;
+        color: white;
+
+      }
+
+#bottom {
+    margin-top: 990px;
+    
+}
+     #bottomRowGap {
+         height: 1200px;
+         opacity: 0; 
+         z-index: -1;
+     }
+
+     #bottomBox {
+         display: flex;
+         position: relative;
+         height: 500px;
+         bottom: 100;
+         width: 100%;
+         background-color: #9fa4c4;
+         background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+     }
+
+     #contactTitle {
+         display: flex;
+         position: absolute;
+         margin-bottom: 320px;
+         font-size: 54px;
+         color: rgb(48, 59, 64);
+         font-family: 'Forum', cursive;
+     }
+
+     #addressTitleLine {
+        display: flex;
+        position: absolute;
+        margin-bottom: 210px;
+        width: 180px;
+        height: 10px;
+        background-color: rgb(92, 33, 91);
+        margin-left: 5px;
+        font-family: 'Forum', cursive;
+        
+     }
+
+     #addressBox {
+         display:flex;
+         position: absolute;
+         float: left;
+         flex-direction: column;
+         margin-right: 300px;
+         margin-top: 46px;
+         font-family: 'Forum', cursive;
+         color: white;
+
+     }
+
+     #talkToUs {
+         display: flex;
+         position: absolute;
+         margin-left: 470px;
+         flex-direction: column;
+         margin-top: 150px;
+         font-family: 'Forum', cursive;
+         color: white;
+     }
+
+    
 
