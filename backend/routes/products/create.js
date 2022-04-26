@@ -9,8 +9,8 @@ router.post("/", async (req, res) => {
 
     console.log(productData);
 
-    await dbConnection.query(`INSERT INTO produtos (id,nome,descricao,preco,data_criacao,usuario_criacao,data_atualizacao,usuario_atualizacao,imagem)
-    VALUES ('${productData.id}','${productData.nome}','${productData.descricao}','${productData.preco}','${productData.data_criacao}','${productData.usuario_criacao}','${productData.data_atualizacao}','${productData.usuario_atualizacao}','${productData.imagem}')`);
+    await dbConnection.query(`INSERT INTO produtos (name,description,price,image,create_at)
+    VALUES ('$1','$2','$3','$4','$5')`[productData.name,productData.description,productData.price,productData.image,productData.create_at]);
 
     res.status(200)
     res.end("Cadastro concluido com sucesso!")

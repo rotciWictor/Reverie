@@ -494,69 +494,53 @@ p, h3 {
     margin-left: 100px;
 
 }
-
-#cartOverBox {
+#cartPG{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}        
-    #cartProductBox {
-    display: flex;
-    width: 710px;
-    height: 668px;
-    margin-top: 200px;
-    margin-left: 30px;
-    background-color: white;
-    border-radius: 50px;
-    align-items: flex-start;
-    justify-content: space-between;
-}     
-         #cartProductImage {
-         width: 315px;
-         height: 186px;
-         border-radius: 20px;
-         margin-top: 30px;
-         margin-left: 30px;
-     }      
-     
-          #cartProductTitle {
-         margin-right: 250px;
-         margin-top: 30px;
-     }
-
-     #cartValueBox {
-         display: flex;
-    width: 236px;
-    height: 113px;
-    border-radius: 30px;
-    background-color: white;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-right: 80px;
-    margin-bottom: 430px;
-}     
-
-#submitOrder {
-    display: flex;
-    position: absolute;
-    left: 841px;   
-    bottom: 130px;
-    color: white;
-    background-color: #CB94E4;
-    font-size: 24px;
-    font-family: 'Poppins', 'sans-serif';
 }
-
-#cartSideBox {
+#cart{
     display: flex;
-    position: absolute;
-    left: 1080px;
-    width: 142px;
-    height: 609px;
-    background-color: #B5179E;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12vh;
+    border: red solid 2px;
+    width: 62vw;
+    height: 80vh;
+}
+#cart-box{
+    display: flex;
+    justify-content: center;
+    border: greenyellow solid 2px;
+    width: 50vw;
+    height: 65vh;
+}
+#product-placeholder{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border: yellow solid 2px;
+    width: 48vw;
+    height: 30vh;
+}
+#cart-aside{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 12vh;
+    border: blue solid 2px;
+    width: 38vw;
+    height: 80vh;
+}
+#checkout-box{
+    display: flex;
     align-items: center;
     justify-content: center;
+    border: orange solid 2px;
+    width: 35vw;
+    height: 40vh;
+    margin-top: 7vh;
 }
 
 .itemContainer {
@@ -586,8 +570,8 @@ p, h3 {
     cursor: pointer;
 }
 .itemContainer > div:hover{
-    transform: translateY(-10px);
-    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+    background-color: #d5b6e488;
+
 }
 
 .itemContainer > div > p{

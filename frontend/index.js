@@ -10,16 +10,6 @@ const {dirname,join} = require('path')
 const {fileURLToPath} = require('url')
 const dbConnection = require("../backend/modules/DbConection")
 
-// import express, {json} from 'express';
-// import cors from 'cors';
-// import usersRouter from './routes/users-routes.js';
-// import authRouter from './routes/auth-routes.js';
-// import dotenv from 'dotenv';
-// import cookieParser from 'cookie-parser';
-// import { dirname,join } from 'path';
-// import { fileURLToPath } from 'url';
-// import pool from './db.js';
-
 dotenv.config();
 
 // const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -38,46 +28,45 @@ app.use('/', express.static(join(__dirname, 'public')))
 app.use('/api/auth',authRouter);
 app.use('/api/users', usersRouter);
 
-app.get('/routes/get', (req, res) => {
+app.get('/routes/get', async (req, res) => {
   try{
-    pool.connect(async (error, client, release) =>{
-      let resp = await client.query(`SELECT * FROM users`);
-      release();
-      res.send(resp.rows);
-    })
+      const users = await dbConnection.query(`SELECT * FROM usuario`);
+      
+      res.send(users);
+    
     }catch(error){
-      console.log(error)
+      console.error(error)
     }
 });
 
 
-app.post('/routes/add', (req,res) => {
+app.post('/routes/add', async (req,res) => {
   try {
-  pool.connect(async (error, client, release) =>{
-    let resp = await client.query(`INSERT INTO users(user_name, user_email, user_password) VALUES ('${req.body.formname}', '${req.body.formemail}', '${req.body.formpassword}')`)
-  })
+ 
+    const newUser = await dbConnection.query(`INSERT INTO users(nome,email,senha) VALUES ('${req.body.formname}', '${req.body.formemail}', '${req.body.formpassword}')`)
+
+    res.send(console.log('OK'))
+
   }catch(error){
     console.log(error)
   }
 })
 
-app.post('/routes/delete', (req,res) => {
+app.delete('/routes/delete', async (req,res) => {
   try{
-  pool.connect(async (error, client, release) =>{
-    let resp = await client.query(`DELETE FROM users WHERE user_name = '${req.body.delete}'`);
+    let resp = await dbConnection.query(`DELETE FROM users WHERE user_name = '${req.body.delete}'`);
     res.redirect('/routes/get')
-  })
+  
   }catch(error){
     console.log(error)
   }
 })
 
-app.post('/routes/contact', (req,res) => {
+app.post('/routes/contact', async (req,res) => {
   try {
-  pool.connect(async (error, client, release) =>{
-    let resp = await client.query(`INSERT INTO contact(contact_name, contact_email, contact_message) VALUES ('$1', '$2', '$3')`,[req.body.contactname,req.body.contactemail,req.body.contactmessage]);
+    let resp = await dbConnection.query(`INSERT INTO contact(contact_name, contact_email, contact_message) VALUES ('$1', '$2', '$3')`,[req.body.contactname,req.body.contactemail,req.body.contactmessage]);
     res.redirect('/')
-  })
+
   }catch(error){
     console.log(error)
   }

@@ -5,12 +5,10 @@ const create = require("./routes/products/create");
 const read = require("./routes/products/read");
 // const delete = require("./routes/products/delete");
 // const update = require("./routes/products/update");
-// const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const corsOptions = { credentials: true, origin: process.env.URL || "*" };
 app.use(cors(corsOptions));
-// app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

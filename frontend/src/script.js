@@ -198,25 +198,43 @@ async function getProducts() {
     showcase.removeChild(showcase.firstChild);
   }
   products.forEach((element) => {
-    const newProduct = `<div>
-      <img id="product${++counter}" width="250" height="175" src='${
-      element.imagem
-    }'/>
-      <p class="itemTitle">${element.nome}</p>
-      <p class="itemPrice">${element.preco}</p>
-      <p class="itemDiscount">12% off</p>
-      <p class="itemDiscount">Sem Frete</p>
-      <p class="itemDescription">${element.descricao}</p>
-      </div>`;
+    const newProduct = `<div id='product${element.id}' sql-id='${element.id}' onclick="addcart(${element.id})">
+      <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
+      <p id="productName${element.id}" class="itemTitle">${element.name}</p>
+      <p id="productPrice${element.id}"class="itemPrice">${element.price}</p>
+      <p id="productDelivery"class="itemDiscount">Sem Frete</p>
+      <p id="product${element.id}" class="itemDescription">${element.description}</p>
+
+      </div>
+       `;
 
     showcase.innerHTML += newProduct;
   });
 }
 
+// Shipping Cart
+let cart = localStorage.getItem('products')
+  ? JSON.parse(localStorage.getItem('products'))
+  : []
+
+localStorage.setItem("products", JSON.stringify(cart));
+const data = JSON.parse(localStorage.getItem("products"));
+
+async function addcart(id) {
+  const response = await fetch(`http://localhost:3000/read/addcart?id=${id}`);
+  const product = await response.json();
+  console.log(product[0]);
+  cart.push(product[0]);
+  localStorage.setItem("products", JSON.stringify(cart));
+  console.log('carrinho',cart)
+}
+
 // session control
 
-let accessToken = '';
-let api_url = '/api';
+// const jwtDecode = require("./jwt-decode");
+
+let accessToken = "";
+let api_url = "/api";
 const divLogin = document.getElementById("div-login");
 const formLogin = document.getElementById("form-login");
 // const buttonGetUsers = document.getElementById("button-get-users");
@@ -224,33 +242,36 @@ const formLogin = document.getElementById("form-login");
 const pStatus = document.getElementById("login-status");
 
 let showLoginPanel = (bShow) => {
-  bShow ? divLogin.style.display = "flex" : divLogin.style.display = "none";
-}
+  bShow ? (divLogin.style.display = "flex") : (divLogin.style.display = "none");
+};
 
-formLogin.onsubmit = async e => {
-  e.preventDefault();
-  const loginDetails = await login({ email: formLogin.email.value, password: formLogin.password.value });
-  console.log(loginDetails);
-  if (loginDetails.error) {
-    pStatus.innerText = loginDetails.error;
-    return;
-  }
-  accessToken = loginDetails.accessToken;
-  const jwtDecoded = jwtDecode(accessToken);
-  pStatus.innerHTML = `Conectado!`;
-  showLoginPanel(false);
-}
+// formLogin.onsubmit = async (e) => {
+//   e.preventDefault();
+//   const loginDetails = await login({
+//     email: formLogin.email.value,
+//     password: formLogin.password.value,
+//   });
+//   console.log(loginDetails);
+//   if (loginDetails.error) {
+//     pStatus.innerText = loginDetails.error;
+//     return;
+//   }
+//   accessToken = loginDetails.accessToken;
+//   const jwtDecoded = jwtDecode(accessToken);
+//   pStatus.innerHTML = `Conectado!`;
+//   showLoginPanel(false);
+// };
 
 async function login(data) {
   //console.log(JSON.stringify(data));
   const res = await fetch(`${api_url}/auth/login`, {
-    method: 'POST',
-    credentials:'include',
-    cache:'no-cache',
+    method: "POST",
+    credentials: "include",
+    cache: "no-cache",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
   return await res.json();
 }

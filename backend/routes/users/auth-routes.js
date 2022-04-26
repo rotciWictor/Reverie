@@ -8,13 +8,13 @@ router.post('/login', async (req, res) => {
   try {
     console.log(req.cookies, req.get('origin'));
     const { email, password } = req.body;
-    const users = await pool.query('SELECT * FROM users WHERE user_email = $1', [email]);
-    if (users.rows.length === 0) return res.status(401).json({error:"Usuário não cadastrado"});
+    const users = await dbConnection.query('SELECT * FROM usuario WHERE email = $1', [email]);
+    if (users.length === 0) return res.status(401).json({error:"Usuário não cadastrado"});
     //PASSWORD CHECK
-    const validPassword = password === users.rows[0].user_password;
+    const validPassword = password === users[0].user_password;
     if (!validPassword) return res.status(401).json({error: "Senha incorreta"});
     //JWT
-    let tokens = jwtTokens(users.rows[0]);//Gets access and refresh tokens
+    let tokens = jwtTokens(users[0]);//Gets access and refresh tokens
     res.cookie('refresh_token', tokens.refreshToken, {...(process.env.COOKIE_DOMAIN && {domain: process.env.COOKIE_DOMAIN}) , httpOnly: true,sameSite: 'none', secure: true});
     res.json(tokens);
   } catch (error) {

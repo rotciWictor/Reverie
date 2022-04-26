@@ -42,3 +42,5 @@ export function jwtDecode(token, options) {
     console.log(e.message);
   }
 }
+
+// module.exports = jwtDecode
