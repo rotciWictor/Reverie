@@ -6,7 +6,8 @@ const usersRouter = require('../backend/routes/users/users-routes')
 const authRouter = require('../backend/routes/users/auth-routes')
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
-const {dirname,join} = require('path')
+const path = require('path')
+const dirname = require()
 const {fileURLToPath} = require('url')
 const dbConnection = require("../backend/modules/DbConection")
 
@@ -30,7 +31,7 @@ app.use('/api/users', usersRouter);
 
 app.get('/routes/get', async (req, res) => {
   try{
-      const users = await dbConnection.query(`SELECT * FROM usuario`);
+      const users = await dbConnection.query(`SELECT * FROM users`);
       
       res.send(users);
     
