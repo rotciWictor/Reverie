@@ -1,14 +1,880 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@600&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+img, body {
     margin: 0;
-    padding:0;
-    box-sizing: border-box;
 }
-form{
-    display: flex;
+
+body {
+    height: 100%;
+}
+
+p, h3 {
+    font-style: none;
+    margin: 0%;
+}
+
+.defaultbg {
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/homepagebg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+   
+}
+
+#homepage {
+    display: block;
+    color: white;
+    height: 1000px;
+   
+}
+
+#registerPG {
+    display: none;
+}
+
+#loginPG {
+    display: none;
+}
+
+#profilePG {
+    display: none;
+}
+
+#cartPG {
+    display: none;  
+}
+
+#productPG {
+    display: none;
+}
+
+#aboutUsPG {
+    display: none;
+}
+
+#catalogue {
+    display: none;
     flex-direction: column;
+    row-gap: 50px;
+}
+
+
+.header {
+    width: 100%;
+    height: 75px;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+
+    
+}
+
+#homeBtn {
+    color: rgb(147, 94, 178);
+}
+#homeBtn:hover {
+    color: rgb(95, 57, 117);
+    cursor: pointer;
+}
+
+#catalogueBtn:hover {
+    color: rgb(147, 94, 178);
+    cursor: pointer;
+}
+
+#contactBtn:hover {
+    color: rgb(147, 94, 178);
+    cursor: pointer;
+}
+
+#aboutUsBtn:hover {
+    color: rgb(147, 94, 178);
+    cursor: pointer;
+}
+
+#profileLogo:hover {
+    color: rgb(147, 94, 178);
+    cursor: pointer;
+}
+
+#cartLogo:hover {
+    color: rgb(147, 94, 178);
+    cursor: pointer;
+}
+
+#mainHeaderLogo {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 190px;
+    width: 210px; 
+    height: 210px;
+
+}
+
+#insideHeader {
+    display: flex;
+    flex-direction: row;
+    column-gap: 17px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50%;
+    font-size: 18px;
+    font-family: 'Forum', cursive;
+    color: white;
+    
+}
+
+
+#mainHeaderLogo:hover {
+    cursor: pointer;
+}
+
+#profileLogo:hover {
+    cursor: pointer;
+}
+
+#cartLogo:hover {
+    cursor: pointer;
+}
+
+
+#firstBox {
+    width: 412px;
+    height: 230px;
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+    margin-left: 160px;
+    margin-top: 110px;
+    font-family: 'Forum', cursive;
+    text-align: justify;
+}
+
+    #astronautText {
+        margin-left: 50px;
+        
+    }
+
+.learnMoreBtn {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(147, 94, 178);
+    color: white;
+    border-style: none;
+    border-color: rgb(147, 94, 178);
+    font-family: 'Poppins', sans-serif;
+    }
+
+.learnMoreBtn:hover {
+    cursor: pointer;
+    background-color: rgb(92, 33, 91);
+    
+}
+
+#secondBox {
+    display: block;
+    margin-top: 200px;
+    width: 100%;
+    height: 800px;
+    background-color: lightgray;
+    
+
+}    
+      #secondBoxImg {
+          display: flex;
+          position: absolute;
+          left: 150px;
+          top: 730px;
+          height: 524px;
+          width: 562px;
+      }
+
+      #secondBoxText {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: black;
+          position: absolute;
+          width: 455px;
+          height: 450px;
+          left: 580px;
+          top: 750px;
+          padding: 40px;
+          border-style: solid;
+          border-width: 13px;
+          border-color: rgb(92, 33, 91);
+          font-family: 'Forum', cursive;
+          color: rgb(48, 59, 64);
+          text-align: justify;
+      }
+
+      #insideSecondBox {
+         margin-left: 25%;
+         
+      }
+      
+#thirdBox {
+    text-align: center;
+   
+}   
+     #thirdBoxTitle {
+         display: block;
+         width: 100%;
+         background-color: rgb(188, 172, 210);
+         color: black;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0;
+         flex-direction: column;
+         font-size: 38px;
+         font-family: 'Forum', cursive;
+         color: rgb(48, 59, 64);
+     }  
+     #thirdBoxTitleLine {
+         display: flex;
+         width: 180px;
+         height: 10px;
+         background-color: rgb(92, 33, 91);
+         margin-left: 35px;
+         
+     }
+     #thirdBoxBoxes {
+        display: flex;
+        width: 100%;
+        height: 600px;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(188, 172, 210);
+        font-family: 'Forum', cursive;
+        
+     } 
+         #serviceBoxOne {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(20, 22, 27); 
+             flex-direction: column;
+         }
+         #serviceBoxTwo {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(91, 111, 118);
+             float: right;
+
+             flex-direction: column;
+         }
+         #serviceBoxThree {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(147, 181, 196);
+             float: right;
+
+            flex-direction: column;
+         }
+         #serviceBoxFour {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 275px;
+             height: 500px;
+             background-color: rgb(183, 223, 237);
+             float: right;
+             row-gap: 30px;
+             flex-direction: column;
+         }
+         .serviceBoxesInside {
+             padding: 5px;
+             margin-left: 50px;
+             margin-right: 80px;
+         }
+        
+         
+
+#registerForms {
+    display: flex;
+    position: absolute;
+    padding: 20px;
+    margin-left: 320px;
+    margin-top: 130px;
+    align-items: center;
+    justify-content: center;
+    width: 550px;
+    height: 700px;
+    background-color: #ba9a8e;
+    background-image: linear-gradient(315deg, #ba9a8e 0%, #96705b 74%);
+}
+
+.registerBox{
+         width: 444px;
+         height: 41px;
+         background-color:#96705b;
+         font-family: 'Poppins', sans-serif;
+         font-style: bolder;
+         font-size: 16px;
+         color: black;
+         box-shadow: 0;
+         border-left: none;
+         border-top: none;
+         border-right: none;
+         border-bottom-color: gray;
+}
+     .registerBox::placeholder {
+         color: black;
+     }
+
+#registerSubmit {
+    width: 303px;
+    height: 53px;
+    margin-left: 90px;
+    background-color: #ba9a8e;
+    background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0;
+    border-style: none;
+
+}
+#registerSubmit:hover {
+    background-color: #95796f;
+    background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+      cursor: pointer;
+  }
+
+#loginForms {
+    display: flex;
+    position: absolute;
+    padding: 20px;
+    margin-left: 320px;
+    margin-top: 130px;
+    align-items: center;
+    justify-content: center;
+    width: 550px;
+    height: 700px;
+    background-color: #ba9a8e;
+    background-image: linear-gradient(315deg, #ba9a8e 0%, #96705b 74%);
+
+}
+
+#loginTitleTxt {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    left: 140px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', 'sans-serif';
+    font-size: 46px;
+
+}
+
+    .loginBox {
+         width: 444px;
+         height: 41px;
+         background-color:#96705b;
+         font-family: 'Poppins', sans-serif;
+         font-style: bolder;
+         font-size: 16px;
+         color: black;
+         box-shadow: 0;
+         border-left: none;
+         border-top: none;
+         border-right: none;
+         border-bottom-color: gray;
+
+     }
+     .loginBox::placeholder {
+         color: black;
+     }
+          #loginSubtext {
+              font-family: 'Poppins', sans-serif;
+              margin-bottom: 20px;
+          }
+          #loginSubtext {
+              cursor: pointer;
+          }
+          #loginSubmit {
+            width: 303px;
+            height: 53px;
+            margin-left: 90px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
+          }
+          #loginSubmit:hover {
+            background-color: #95796f;
+            background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+              cursor: pointer;
+          }
+         #loginButtonSubtext {
+            font-family: 'Poppins', sans-serif;
+            margin-left: 100px;
+         }
+         #loginButtonSubtext:hover {
+             cursor: pointer;
+         }
+
+#profileInfos {
+    display: flex;
+    margin-top: 100px;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-family: 'Hind Vadodara', sans-serif;
+}    
+     #optionsBox {
+         display: flex;
+         flex-direction: column;
+         row-gap: 0px;
+         width: 304px;
+         height: 416px;
+         margin-top: 50px;
+     }
+         .profileButtons {
+             width:304px;
+             height: 89px; 
+             
+         }
+     #personalData {
+         border-radius: 15px;
+         font-family: 'Poppins', sans-serif;
+
+     }  
+         .personalDataBox {
+             border-radius: 40px;
+             width: 278px;
+             height: 44px;
+             box-shadow: 0, 0, 0, 0;
+             border-color: white;
+         }
+
+         .profileHeaderText {
+             font-size: 30px;
+         }
+
+     #acessData {
+         margin-right: 100px;
+         font-family: 'Poppins', sans-serif;
+
+     } 
+         .modifyLoginInfo {
+             width: 278px;
+             height: 64px;
+             background-color: #C895E4;
+             border-radius: 30px;
+             border-color: #C895E4;
+             color: white;
+             font-size: 15px;
+             font-family: 'Poppins', sans-serif;
+             font-style: bolder;
+         }
+         
+#profileShoppingCart {
+    display: none;
+    width: 700px;
+    height: 400px;
+    background-color: white;
+    margin-left: 100px;
+
+}
+#cartPG{
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-input{
+#cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12vh;
+    border: red solid 2px;
+    width: 62vw;
+    height: 80vh;
+}
+#cart-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: greenyellow solid 2px;
+    width: 55vw;
+    height: 70vh;
+    overflow:scroll;
+}
+.product-placeholder{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border: yellow solid 2px;
+    width: 48vw;
+    height: 30vh;
+}
+#cart-aside{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    margin-top: 12vh;
+    border: blue solid 2px;
+    width: 38vw;
+    height: 80vh;
+}
+#checkout-box{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    border: orange solid 2px;
+    width: 35vw;
+    height: 40vh;
+    margin-top: 7vh;
+}
+#clear-cart{
+    display: flex;
+    justify-self: flex-end;
+    font-weight: bold;
+}
+#buy-button{
+    height: 10vh;
     width: 20vw;
 }
+
+.itemContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 120px;
+
+}
+
+.itemContainer > div {
+    display: flex;
+    background-color: #d3abe688;
+    margin: 5px;
+    padding: 5px;
+    font-size: 30px;
+    width: 400px;
+    height: 360px;
+    flex-direction: column;
+    row-gap: 4px;
+    align-items: center;
+    /* border-radius: 30px; */
+    border: solid purple 1px;
+    color: whitesmoke;
+    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+.itemContainer > div:hover{
+    background-color: #d5b6e488;
+
+}
+
+.itemContainer > div > p{
+    text-align: center;
+}
+
+.itemTitle {
+    font-size: 22px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: bolder;
+    color:purple;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: whitesmoke
+}
+
+.itemDescription {
+    font-size: 16px;
+    text-align: left;
+
+}
+
+.itemPrice {
+    font-size: 20px;
+}
+
+.itemDiscount {
+    font-size: 16px;
+    color: #c00606;
+    font-weight: bold;
+}
+
+.itemAddCartText {
+    font-size: 12px;
+    color: #810606;
+}
+
+.itemAddCartButton {
+    background-color:#C895E4;
+    border-color: grey;
+    border-style: none;
+    box-shadow: none;
+
+}
+
+.itemAddCartButton:hover {
+    background-color:#a97bc2
+}
+
+#hackerProductPG {
+    display: none;
+    width: 700px;
+    height: 600px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 250px;
+}
+
+#runnerProductPG {
+    display: none;
+    width: 700px;
+    height: 600px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 250px;
+}
+
+.productBox {
+    width: 325px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.productBoxText {
+    margin-left: 30px;
+    margin-top: 60px;
+
+}
+
+
+#contactForms {
+    display: flex;
+    align-items: space-between;
+    justify-content: center;
+    margin-top: 100px;
+    height: 450px;
+
+}
+     
+    .contactBox {
+         width: 250px;
+         height: 20px;
+         background-color: #D4DDDC;
+         border-color: #D4DDDC;
+         box-shadow: #D4DDDC;
+         font-family: 'Poppins', sans-serif;
+         font-style: bolder;
+         font-size: 15px;
+         color: #5D949E;
+         box-shadow: 0;
+     }
+          #loginSubtext {
+              font-family: 'Poppins', sans-serif;
+              margin-bottom: 20px;
+          }
+         #loginButtonSubtext {
+            font-family: 'Poppins', sans-serif;
+            margin-left: 100px;
+         }
+         #messageBox {
+            width: 250px;
+            height: 60px;
+            background-color: #D4DDDC;
+            border-color: #D4DDDC;
+            box-shadow: #D4DDDC;
+            font-family: 'Poppins', sans-serif;
+            font-style: bolder;
+            font-size: 15px;
+            color: #5D949E;
+            box-shadow: 0;
+         }
+         #messageSubmitBtn {
+            width: 253px;
+            height: 43px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
+         }
+         #messageSubmitBtn:hover{
+             cursor: pointer;
+             background-color: #95786e;
+            background-image: linear-gradient(315deg, #767a96 0%, #88687c 74%);
+         }
+         
+#aboutUsText {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    row-gap: 12px;
+    margin-right: 400px;
+    margin-top: 100px;
+    height: 200px;
+    font-family: 'Forum', cursive;
+    color: white;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+#aboutUsFirstBox {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(148, 101, 57);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    column-gap: 100px;
+
+}
+
+#aboutUsFirstTxt {
+    width: 400px;
+    height: 300px;
+    text-align: justify;
+    row-gap: 100px;
+    font-family: 'Forum', cursive;
+
+}
+
+.aboutUsRow {
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    font-family: 'Forum', cursive;
+}
+
+     #aboutUsCitation {
+         display: flex;
+         margin-left: 330px;
+     }
+
+#aboutUsSecondBox{
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(170, 180, 93);
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 100px;   
+}
+      #aboutUsSecondTxt {
+        width: 400px;
+        height: 300px;
+        text-align: justify;
+        row-gap: 100px;
+        font-family: 'Forum', cursive;
+        color: white;
+
+      }
+
+#bottom {
+    margin-top: 990px;
+    
+}
+     #bottomRowGap {
+         height: 1200px;
+         opacity: 0; 
+         z-index: -1;
+     }
+
+     #bottomBox {
+         display: flex;
+         position: relative;
+         height: 500px;
+         bottom: 100;
+         width: 100%;
+         background-color: #9fa4c4;
+         background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+     }
+
+     #contactTitle {
+         display: flex;
+         position: absolute;
+         margin-bottom: 320px;
+         font-size: 54px;
+         color: rgb(48, 59, 64);
+         font-family: 'Forum', cursive;
+     }
+
+     #addressTitleLine {
+        display: flex;
+        position: absolute;
+        margin-bottom: 210px;
+        width: 180px;
+        height: 10px;
+        background-color: rgb(92, 33, 91);
+        margin-left: 5px;
+        font-family: 'Forum', cursive;
+        
+     }
+
+     #addressBox {
+         display:flex;
+         position: absolute;
+         float: left;
+         flex-direction: column;
+         margin-right: 300px;
+         margin-top: 46px;
+         font-family: 'Forum', cursive;
+         color: white;
+
+     }
+
+     #talkToUs {
+         display: flex;
+         position: absolute;
+         margin-left: 470px;
+         flex-direction: column;
+         margin-top: 150px;
+         font-family: 'Forum', cursive;
+         color: white;
+     }
+#cart-sign{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #d60f0f;
+    color: whitesmoke;
+    font-size: medium;
+    position: absolute;
+    z-index: 1;
+    top:1.5vh;
+    left: 84vw;
+}
+    
+
