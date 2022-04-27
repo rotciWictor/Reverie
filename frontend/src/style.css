@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@600&family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+
 
 img, body {
     margin: 0;
@@ -14,6 +16,28 @@ body {
 p, h3 {
     font-style: none;
     margin: 0%;
+}
+
+h1 {
+    text-align: center;
+}
+
+#h2effect {
+    font-family: "Luckiest Guy", cursive;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+      0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+      0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+      -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
+}
+
+.shadow{
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+      0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+      0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+      -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
 }
 
 .defaultbg {
@@ -68,8 +92,6 @@ p, h3 {
     height: 75px;
     background-color: rgba(255, 255, 255, 0);
     display: flex;
-
-    
 }
 
 #homeBtn {
@@ -109,7 +131,7 @@ p, h3 {
     display: flex;
     position: absolute;
     top: 0px;
-    left: 190px;
+    left: 170px;
     width: 210px; 
     height: 210px;
 
@@ -143,20 +165,20 @@ p, h3 {
 
 
 #firstBox {
-    width: 412px;
-    height: 230px;
+    width: 1000px;
+    height: 250px;
     display: flex;
-    align-items: space-between;
-    justify-content: space-between;
-    margin-left: 160px;
-    margin-top: 110px;
+    flex-direction: row;
+    margin-left: 120px;
+    margin-top: 70px;
     font-family: 'Forum', cursive;
     text-align: justify;
+ 
 }
 
     #astronautText {
-        margin-left: 50px;
-        
+        width: 400px;
+        height: 100px;
     }
 
 .learnMoreBtn {
@@ -370,15 +392,15 @@ p, h3 {
 }
 
 #loginTitleTxt {
+    text-align: center;
     display: flex;
-    position: absolute;
-    top: 80px;
-    left: 140px;
+
+    padding-bottom: 100px;
     color: white;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', 'sans-serif';
     font-size: 46px;
+    font-family: 'Forum', cursive;
 
 }
 
@@ -425,19 +447,29 @@ p, h3 {
               cursor: pointer;
           }
          #loginButtonSubtext {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Forum', cursive;
             margin-left: 100px;
          }
          #loginButtonSubtext:hover {
              cursor: pointer;
          }
-
+#profileInnerData {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 15px;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: #95796f;
+    background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+}
 #profileInfos {
     display: flex;
     margin-top: 100px;
-    align-items: flex-start;
-    justify-content: space-between;
-    font-family: 'Hind Vadodara', sans-serif;
+    color: white;
+    font-family: 'Forum', cursive;
+    
 }    
      #optionsBox {
          display: flex;
@@ -445,24 +477,40 @@ p, h3 {
          row-gap: 0px;
          width: 304px;
          height: 416px;
-         margin-top: 50px;
+         font-family: 'Poppins', sans-serif;
      }
          .profileButtons {
+             color: white;
              width:304px;
              height: 89px; 
-             
+             background-color: #95796f;
+             background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+             border-style: none;
+             font-weight: bold;
+             font-family: 'Poppins', sans-serif;
          }
+.profileButtons:hover {
+          cursor: pointer;
+        background-color: #624f49;
+         background-image: linear-gradient(315deg, #4a4d5f 0%, #483440 74%);
+
+}
      #personalData {
          border-radius: 15px;
-         font-family: 'Poppins', sans-serif;
-
+         font-family: 'Forum', cursive;
+         margin-left: 50px;
+         
      }  
          .personalDataBox {
-             border-radius: 40px;
+             border-radius: 3px;
              width: 278px;
              height: 44px;
              box-shadow: 0, 0, 0, 0;
-             border-color: white;
+             border-color: black;
+             border-left: none;
+             border-right: none;
+             border-top: none;
+             background-color: #534853;
          }
 
          .profileHeaderText {
@@ -470,20 +518,29 @@ p, h3 {
          }
 
      #acessData {
-         margin-right: 100px;
-         font-family: 'Poppins', sans-serif;
+         display: flex;
+         font-family: 'Forum', cursive;
+         flex-direction: column;
+         margin-right: 75px;
+
+         margin-bottom: 105px;
 
      } 
          .modifyLoginInfo {
-             width: 278px;
-             height: 64px;
-             background-color: #C895E4;
-             border-radius: 30px;
-             border-color: #C895E4;
-             color: white;
-             font-size: 15px;
-             font-family: 'Poppins', sans-serif;
-             font-style: bolder;
+            width: 303px;
+            height: 53px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
+         }
+         .modifyLoginInfo:hover{
+            cursor: pointer;
+            background-color: #624f49;
+             background-image: linear-gradient(315deg, #4a4d5f 0%, #483440 74%);
          }
          
 #profileShoppingCart {
@@ -494,13 +551,42 @@ p, h3 {
     margin-left: 100px;
 
 }
-#cartPG{
+
+#cartOverBox {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-}
-#cart{
+}        
+    #cartProductBox {
     display: flex;
+    width: 710px;
+    height: 668px;
+    margin-top: 200px;
+    margin-left: 30px;
+    background-color: white;
+    border-radius: 50px;
+    align-items: flex-start;
+    justify-content: space-between;
+}     
+         #cartProductImage {
+         width: 315px;
+         height: 186px;
+         border-radius: 20px;
+         margin-top: 30px;
+         margin-left: 30px;
+     }      
+     
+          #cartProductTitle {
+         margin-right: 250px;
+         margin-top: 30px;
+     }
+
+     #cartValueBox {
+         display: flex;
+    width: 236px;
+    height: 113px;
+    border-radius: 30px;
+    background-color: white;
     justify-content: center;
     align-items: center;
     margin-top: 12vh;
@@ -540,6 +626,11 @@ p, h3 {
 #checkout-box{
     background-color: white;
     display: flex;
+    position: absolute;
+    left: 1080px;
+    width: 142px;
+    height: 609px;
+    background-color: #B5179E;
     align-items: center;
     justify-content: center;
     flex-direction:column;
@@ -585,8 +676,8 @@ p, h3 {
     cursor: pointer;
 }
 .itemContainer > div:hover{
-    background-color: #d5b6e488;
-
+    transform: translateY(-10px);
+    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
 }
 
 .itemContainer > div > p{
@@ -877,4 +968,79 @@ p, h3 {
     left: 84vw;
 }
     
+
+     html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      
+      .pic-ctn {
+          display: flex;
+         width: 100vw;
+         height: 400px;
+
+
+      }
+      
+      @keyframes display {
+        0% {
+          transform: translateX(200px);
+          opacity: 0;
+        }
+        10% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        20% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        30% {
+          transform: translateX(-200px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(-200px);
+          opacity: 0;
+        }
+      }
+      
+      .pic-ctn {
+          display: flex;
+          position: absolute;
+        margin-bottom: 150px;
+        width: 100vw;
+        height: 300px;
+        
+      }
+      
+      .pic-ctn > img {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 100px);
+        opacity: 0;
+        animation: display 20s infinite;
+      }
+      
+      img:nth-child(2) {
+        animation-delay: 5s;
+      }
+      img:nth-child(3) {
+        animation-delay: 10s;
+      }
+      img:nth-child(4) {
+        animation-delay: 15s;
+      }
+      img:nth-child(5) {
+        animation-delay: 20s;
+      }
+
+      .pic {
+          display: flex;
+          margin-bottom: 50px;
+      }
+
+ 
 
