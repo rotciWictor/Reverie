@@ -16,8 +16,9 @@ $("#homeBtn").click(function () {
 
 $("#mainHeaderLogo").click(function () {
   $("#homepage").fadeIn();
-
+  $("#bottom").css("margin-top", "990px");
   $(".defaultbg").css("background-size", "contain");
+
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
   $("#profilePG").fadeOut();
@@ -159,20 +160,10 @@ $("#cartLogo").click(function () {
 });
 
 $("#loginSubmit").click(function () {
-  $("#loginPG").fadeIn();
-
-  $("#registerPG").fadeOut();
-  $("#homepage").fadeOut();
-  $("#cartPG").fadeOut();
-  $("#profilePG").fadeOut();
-  $("#productPG").fadeOut();
-  $("#catalogue").fadeOut();
-  $("#contactPG").fadeOut();
-  $("#aboutUsPG").fadeOut();
-});
-
-$("#registerSubmit").click(function () {
   $("#profilePG").fadeIn();
+  
+  $(".defaultbg").css("background-size", "cover");
+  $("#bottom").css("margin-top", "25px");
 
   $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
@@ -183,6 +174,70 @@ $("#registerSubmit").click(function () {
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
 });
+
+$("#registerSubmit").click(function () {
+  $("#profilePG").fadeIn();
+  $(".defaultbg").css("background-size", "cover");
+  $("#bottom").css("margin-top", "25px");
+
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+});
+
+$("#profileData").click(function () {
+  $("#profilePG").fadeIn();
+  $(".defaultbg").css("background-size", "cover");
+  $("#bottom").css("margin-top", "25px");
+
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+})
+
+$("#profileQuit").click(function () {
+  $("#homepage").fadeIn();
+  $("#bottom").css("margin-top", "990px");
+  $(".defaultbg").css("background-size", "contain");
+
+  $("#registerPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#profilePG").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+})
+
+$("#profileOrderBtn").click(function () {
+
+})
+
+$("#profileCartBtn").click(function () {
+  $("#cartPG").fadeIn();
+
+  $("#bottom").css("margin-top", "270px");
+  $(".defaultbg").css("background-size", "cover");
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#profilePG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+})
 
 $(".learnMoreBtn").click(function () {
   $("#aboutUsPG").fadeIn();
@@ -213,6 +268,7 @@ async function getProducts() {
     showcase.removeChild(showcase.firstChild);
   }
   products.forEach((element) => {
+
     const newProduct = `<div id='product${element.id}' sql-id='${element.id}' onclick="addcart(${element.id})">
       <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
       <p id="productName${element.id}" class="itemTitle">${element.name}</p>
@@ -298,10 +354,10 @@ function clear() {
 
 // session control
 
-// const jwtDecode = require("./jwt-decode");
+const jwtDecode = require("./jwt-decode");
 
-let accessToken = "";
-let api_url = "/api";
+let accessToken = '';
+let api_url = '/api';
 const divLogin = document.getElementById("div-login");
 const formLogin = document.getElementById("form-login");
 // const buttonGetUsers = document.getElementById("button-get-users");
@@ -309,36 +365,33 @@ const formLogin = document.getElementById("form-login");
 const pStatus = document.getElementById("login-status");
 
 let showLoginPanel = (bShow) => {
-  bShow ? (divLogin.style.display = "flex") : (divLogin.style.display = "none");
-};
+  bShow ? divLogin.style.display = "flex" : divLogin.style.display = "none";
+}
 
-// formLogin.onsubmit = async (e) => {
-//   e.preventDefault();
-//   const loginDetails = await login({
-//     email: formLogin.email.value,
-//     password: formLogin.password.value,
-//   });
-//   console.log(loginDetails);
-//   if (loginDetails.error) {
-//     pStatus.innerText = loginDetails.error;
-//     return;
-//   }
-//   accessToken = loginDetails.accessToken;
-//   const jwtDecoded = jwtDecode(accessToken);
-//   pStatus.innerHTML = `Conectado!`;
-//   showLoginPanel(false);
-// };
+formLogin.onsubmit = async e => {
+  e.preventDefault();
+  const loginDetails = await login({ email: formLogin.email.value, password: formLogin.password.value });
+  console.log(loginDetails);
+  if (loginDetails.error) {
+    pStatus.innerText = loginDetails.error;
+    return;
+  }
+  accessToken = loginDetails.accessToken;
+  const jwtDecoded = jwtDecode(accessToken);
+  pStatus.innerHTML = `Conectado!`;
+  showLoginPanel(false);
+}
 
 async function login(data) {
   //console.log(JSON.stringify(data));
   const res = await fetch(`${api_url}/auth/login`, {
-    method: "POST",
-    credentials: "include",
-    cache: "no-cache",
+    method: 'POST',
+    credentials:'include',
+    cache:'no-cache',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data)
   });
   return await res.json();
 }
