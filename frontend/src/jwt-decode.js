@@ -33,7 +33,7 @@ function base64_url_decode(str) {
   }
 }
 
-export function jwtDecode(token, options) {
+function jwtDecode(token, options) {
   options = options || {};
   var pos = options.header === true ? 0 : 1;
   try {
@@ -43,4 +43,4 @@ export function jwtDecode(token, options) {
   }
 }
 
-// module.exports = jwtDecode
+module.exports = jwtDecode
