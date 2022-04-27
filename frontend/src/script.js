@@ -130,6 +130,21 @@ $("#loginButtonSubtext").click(function () {
 });
 
 $("#cartLogo").click(function () {
+  clearBoxOnly()
+  const cartBox = document.getElementById("cart-box");
+  cart.forEach((element) => {
+    console.log(element);
+    const newCartItem = `<div id="product-placeholder">
+                            <img src="${element.image}" width="300px" height="180px">
+                          <div id="product-data">
+                            <p>${element.name}</p>
+                            <p>Quantidade: 1</p>
+                            <p>Preço:R$ ${element.price}</p>
+                          </div>
+                        </div> `;
+    cartBox.innerHTML += newCartItem;
+  });
+  subtotal();
   $("#cartPG").fadeIn();
 
   $("#bottom").css("margin-top", "270px");
@@ -253,19 +268,88 @@ async function getProducts() {
     showcase.removeChild(showcase.firstChild);
   }
   products.forEach((element) => {
-    const newProduct = `<div>
-      <img id="product${++counter}" width="250" height="175" src='${
-      element.imagem
-    }'/>
-      <p class="itemTitle">${element.nome}</p>
-      <p class="itemPrice">${element.preco}</p>
-      <p class="itemDiscount">12% off</p>
-      <p class="itemDiscount">Sem Frete</p>
-      <p class="itemDescription">${element.descricao}</p>
-      </div>`;
 
+    const newProduct = `<div id='product${element.id}' sql-id='${element.id}' onclick="addcart(${element.id})">
+      <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
+      <p id="productName${element.id}" class="itemTitle">${element.name}</p>
+      <p id="productPrice${element.id}"class="itemPrice">R$ ${element.price}</p>
+      <p id="productDelivery"class="itemDiscount">Sem Frete</p>
+      <p id="product${element.id}" class="itemDescription">${element.description}</p>
+      </div> `;
     showcase.innerHTML += newProduct;
   });
+}
+
+// Shipping Cart
+let cart = localStorage.getItem("products")
+  ? JSON.parse(localStorage.getItem("products"))
+  : [];
+
+localStorage.setItem("products", JSON.stringify(cart));
+const data = JSON.parse(localStorage.getItem("products"));
+
+async function addcart(id) {
+  const response = await fetch(`http://localhost:3000/read/addcart?id=${id}`);
+  const product = await response.json();
+  console.log(product[0]);
+  cart.push(product[0]);
+  localStorage.setItem("products", JSON.stringify(cart));
+  console.log("carrinho", cart);
+  const cartBox = document.getElementById("cart-box");
+
+  cart.forEach((element) => {
+    console.log(element);
+    const newCartItem = `<div id="product-placeholder">
+                            <img src="${element.image}" width="300px" height="180px">
+                          <div id="product-data">
+                            <p>${element.name}</p>
+                            <p>Quantidade: 1</p>
+                            <p>Preço: R$ ${element.price}</p>
+                          </div>
+                        </div> `;
+    cartBox.innerHTML += newCartItem;
+    subtotal();
+  });
+}
+function subtotal() {
+  let subtotal = "";
+  console.log(cart.length);
+  if (cart.length != 0) {
+    subtotal = cart.reduce(
+      function (acumulador, valorAtual, index, array) {
+        return {price:parseFloat(acumulador.price) + parseFloat(valorAtual.price)};
+      },
+      { price: 0 }
+    );
+  }
+
+  showedSubtotal = document.getElementById("subtotal");
+  console.log("subtotal", subtotal);
+  if(subtotal != ""){
+    showedSubtotal.innerHTML = `R$ ${subtotal.price.toFixed(2)}`;
+  }else{
+    showedSubtotal.innerHTML = subtotal;
+  }
+
+}
+const limpezaPesada = document.querySelector("#clear-cart");
+const cartBox = document.querySelector("#cart-box");
+console.log(limpezaPesada);
+limpezaPesada.addEventListener("click", clear);
+
+function clearBoxOnly(){
+    while (cartBox.firstChild) {
+      cartBox.removeChild(cartBox.firstChild);
+    }
+  }
+function clear() {
+  console.log("clear");
+  localStorage.clear();
+  cart = [];
+  while (cartBox.firstChild) {
+    cartBox.removeChild(cartBox.firstChild);
+  }
+  subtotal();
 }
 
 // session control

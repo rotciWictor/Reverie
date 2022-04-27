@@ -566,23 +566,42 @@ p, h3 {
     background-color: white;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-right: 80px;
-    margin-bottom: 430px;
-}     
-
-#submitOrder {
-    display: flex;
-    position: absolute;
-    left: 841px;   
-    bottom: 130px;
-    color: white;
-    background-color: #CB94E4;
-    font-size: 24px;
-    font-family: 'Poppins', 'sans-serif';
+    margin-top: 12vh;
+    border: red solid 2px;
+    width: 62vw;
+    height: 80vh;
 }
-
-#cartSideBox {
+#cart-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: greenyellow solid 2px;
+    width: 50vw;
+    height: 65vh;
+    overflow:scroll;
+}
+#product-placeholder{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border: yellow solid 2px;
+    width: 48vw;
+    height: 30vh;
+}
+#cart-aside{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    margin-top: 12vh;
+    border: blue solid 2px;
+    width: 38vw;
+    height: 80vh;
+}
+#checkout-box{
+    background-color: white;
     display: flex;
     position: absolute;
     left: 1080px;
@@ -591,6 +610,20 @@ p, h3 {
     background-color: #B5179E;
     align-items: center;
     justify-content: center;
+    flex-direction:column;
+    border: orange solid 2px;
+    width: 35vw;
+    height: 40vh;
+    margin-top: 7vh;
+}
+#clear-cart{
+    display: flex;
+    justify-self: flex-end;
+    font-weight: bold;
+}
+#buy-button{
+    height: 10vh;
+    width: 20vw;
 }
 
 .itemContainer {
