@@ -183,21 +183,15 @@
 
         <section id='cartPG'>
             <main id="cart">
-                <div id="cart-box">
-                    <div id="product-placeholder">
-                        <img src="./img/formulaone.png" width="300px" height="180px">
-                    <div id="product-data">
-                        <p>KIT KAT</p>
-                        <p>Quantidade: 2</p>
-                        <p>Preço: 20000</p>
-                    </div>
-                    </div>
-                </div>
+                <div id="cart-box"></div>
             </main>
             <aside id="cart-aside">
                 <div id="checkout-box">
-
+                    <h2>Subtotal:</h2>
+                    <h3 id="subtotal"></h3>
+                    <input id='clear-cart'type="button" value="Limpar Carrinho" onclick=clear()>
                 </div>
+                <input id="buy-button" type="button" value="Finalizar Compra">
             </aside>
             <!-- <div id="cartOverBox">
                 <div id="cartProductBox">
