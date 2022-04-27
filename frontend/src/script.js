@@ -16,6 +16,7 @@ $("#homeBtn").click(function () {
 
 $("#mainHeaderLogo").click(function () {
   $("#homepage").fadeIn();
+  $("#bottom").css("margin-top", "990px");
 
   $(".defaultbg").css("background-size", "contain");
   $("#registerPG").fadeOut();
@@ -129,21 +130,25 @@ $("#loginButtonSubtext").click(function () {
 });
 
 $("#cartLogo").click(function () {
-  clearBoxOnly()
+  clearBoxOnly();
   const cartBox = document.getElementById("cart-box");
+  let counterPG = 0
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder">
+    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
                             <img src="${element.image}" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Quantidade: 1</p>
-                            <p>Preço:R$ ${element.price}</p>
+                            <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
+                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
                           </div>
-                        </div> `;
+                        </div>`;
     cartBox.innerHTML += newCartItem;
   });
   subtotal();
+  counterPG = 0
   $("#cartPG").fadeIn();
 
   $("#bottom").css("margin-top", "270px");
@@ -207,7 +212,6 @@ $(".learnMoreBtn").click(function () {
 async function getProducts() {
   const response = await fetch(`http://localhost:3000/read`);
   const products = await response.json();
-  let counter = 0;
   const showcase = document.getElementById("showcase");
   while (showcase.firstChild) {
     showcase.removeChild(showcase.firstChild);
@@ -216,7 +220,7 @@ async function getProducts() {
     const newProduct = `<div id='product${element.id}' sql-id='${element.id}' onclick="addcart(${element.id})">
       <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
       <p id="productName${element.id}" class="itemTitle">${element.name}</p>
-      <p id="productPrice${element.id}"class="itemPrice">R$ ${element.price}</p>
+      <p id="productPrice${element.id}"class="itemPrice">R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
       <p id="productDelivery"class="itemDiscount">Sem Frete</p>
       <p id="product${element.id}" class="itemDescription">${element.description}</p>
       </div> `;
@@ -229,6 +233,12 @@ let cart = localStorage.getItem("products")
   ? JSON.parse(localStorage.getItem("products"))
   : [];
 
+let cartSign = document.querySelector("#cart-sign");
+
+function cartAtlzr() {
+  cartSign.innerHTML = cart.length;
+}
+cartAtlzr();
 localStorage.setItem("products", JSON.stringify(cart));
 const data = JSON.parse(localStorage.getItem("products"));
 
@@ -239,21 +249,27 @@ async function addcart(id) {
   cart.push(product[0]);
   localStorage.setItem("products", JSON.stringify(cart));
   console.log("carrinho", cart);
+  cartAtlzr();
+  console.log(cart.length);
   const cartBox = document.getElementById("cart-box");
-
+  let counter = 0
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder">
+    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
                             <img src="${element.image}" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price}</p>
+                            <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
+                            <input id="nd-item${element.id}" type="hidden" value="${counter++}" name="cart">
                           </div>
-                        </div> `;
+                        </div>`;
     cartBox.innerHTML += newCartItem;
     subtotal();
+  
   });
+  counter = 0
 }
 function subtotal() {
   let subtotal = "";
@@ -261,7 +277,9 @@ function subtotal() {
   if (cart.length != 0) {
     subtotal = cart.reduce(
       function (acumulador, valorAtual, index, array) {
-        return {price:parseFloat(acumulador.price) + parseFloat(valorAtual.price)};
+        return {
+          price: parseFloat(acumulador.price) + parseFloat(valorAtual.price),
+        };
       },
       { price: 0 }
     );
@@ -269,23 +287,22 @@ function subtotal() {
 
   showedSubtotal = document.getElementById("subtotal");
   console.log("subtotal", subtotal);
-  if(subtotal != ""){
+  if (subtotal != "") {
     showedSubtotal.innerHTML = `R$ ${subtotal.price.toFixed(2)}`;
-  }else{
+  } else {
     showedSubtotal.innerHTML = subtotal;
   }
-
 }
 const limpezaPesada = document.querySelector("#clear-cart");
 const cartBox = document.querySelector("#cart-box");
 console.log(limpezaPesada);
 limpezaPesada.addEventListener("click", clear);
 
-function clearBoxOnly(){
-    while (cartBox.firstChild) {
-      cartBox.removeChild(cartBox.firstChild);
-    }
+function clearBoxOnly() {
+  while (cartBox.firstChild) {
+    cartBox.removeChild(cartBox.firstChild);
   }
+}
 function clear() {
   console.log("clear");
   localStorage.clear();
@@ -293,7 +310,20 @@ function clear() {
   while (cartBox.firstChild) {
     cartBox.removeChild(cartBox.firstChild);
   }
+  cartAtlzr();
   subtotal();
+}
+function removeProduct(id){
+console.log('remover')
+const newCart = cart.filter((product) =>  product.id != id)
+localStorage.setItem("products", JSON.stringify(newCart));
+cart = newCart
+const placeholder = document.querySelector(`#product-placeholder${id}`)
+cartBox.removeChild(placeholder)
+console.log(newCart)
+
+cartAtlzr();
+subtotal();
 }
 
 // session control

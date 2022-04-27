@@ -514,11 +514,11 @@ p, h3 {
     justify-content: center;
     align-items: flex-start;
     border: greenyellow solid 2px;
-    width: 50vw;
-    height: 65vh;
+    width: 55vw;
+    height: 70vh;
     overflow:scroll;
 }
-#product-placeholder{
+.product-placeholder{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -861,6 +861,20 @@ p, h3 {
          font-family: 'Forum', cursive;
          color: white;
      }
-
+#cart-sign{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #d60f0f;
+    color: whitesmoke;
+    font-size: medium;
+    position: absolute;
+    z-index: 1;
+    top:1.5vh;
+    left: 84vw;
+}
     
 
