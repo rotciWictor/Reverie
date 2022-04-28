@@ -5,14 +5,14 @@ const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
   try {
-    // const {data} = req.body;
-    // const hashPassword = await bcrypt.hash(data.password, 10);
-    // console.log(hashPassword);
+    const {data} = req.body;
+    const hashPassword = await bcrypt.hash(data.password, 10);
+    console.log(hashPassword);
     const today = Date.now()
     console.log(today)
 
-    // await dbConnection.query(`INSERT INTO users (name,email,cpf,password,address,zip_code,telephone,create_at)
-    // VALUES ($1,$2,$3,$4,$5,$6,$7)`,[data.name,data.email,data.cpf,hashPassword,data.address,data.zip_code,data.telephone,today]);
+    await dbConnection.query(`INSERT INTO users (name,email,cpf,password,address,zip_code,telephone)
+    VALUES ($1,$2,$3,$4,$5,$6,$7)`,[data.name,data.email,data.cpf,hashPassword,data.address,data.zip_code,data.telephone]);
     // await dbConnection.query(`INSERT INTO users (name, email, cpf, password, address, zip_code, telephone)
     // VALUES (${data.name}, ${data.email}, ${data.cpf}, ${hashPassword}, ${data.address}, ${data.zip_code},${data.telephone})`);
     

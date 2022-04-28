@@ -416,8 +416,8 @@ function removeProduct(id) {
 
 // session control
 
-const email = document.querySelector("#email");
-const password = document.querySelector("#password");
+const email = document.querySelector("#login-email");
+const password = document.querySelector("#login-password");
 const btnLogin = document.querySelector("#loginSubmit");
 
 async function login() {
@@ -449,17 +449,22 @@ async function login() {
   console.log(accessToken);
   return result;
 }
-addEventListener("click", login);
+btnLogin.addEventListener("click", login);
 
-const registerName = document.querySelector("");
-const registerEmail = document.querySelector("");
-const registerCPF = document.querySelector("");
-const registerPassword = document.querySelector("");
-const registerAddress = document.querySelector("");
-const registerTelephone = document.querySelector("");
-const registerZipCode = document.querySelector("");
+const registerName = document.querySelector("#name");
+const registerEmail = document.querySelector("#email");
+const registerCPF = document.querySelector("#cpf");
+const registerPassword = document.querySelector("#password");
+const registerAddress = document.querySelector("#address");
+const registerTelephone = document.querySelector("#phone");
+const registerZipCode = document.querySelector("#zip-code");
+const registerConfirmPassword = document.querySelector("#confirm-password");
+const registerBtn = document.querySelector('#registerSubmit')
 
 async function registration() {
+  if(registerPassword.value != registerConfirmPassword.value){
+    return alert("Senhas diferem")
+  }
   const registrationData = {
     data: {
       name: registerName.value,
@@ -493,3 +498,4 @@ async function registration() {
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
 }
+registerBtn.addEventListener("click", registration);
