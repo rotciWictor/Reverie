@@ -566,7 +566,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 1000px;
+    width: 1200px;
     height: 500px;
     overflow: scroll;
     background-color:#88687c;
@@ -584,21 +584,25 @@ h1 {
     height: 30vh;
 }
 
-#checkout-box{
-    display: flex;
+
+
+#checkout-box {
+    display: absolute;
+    position: absolute;
+    padding: 20px;
+    left: 800px;
+    top: 275px;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 50px;
-    justify-content: flex-start;
+    justify-content: center;
     background-color:#88687c;
     width: 350px;
-    height: 500px;
+    height: 460px;
     font-family: "Forum", cursive;
     color: white;
 }
 
-#clear-cart{
+#clear-cart {
     width: 150px;
     height: 50px;
     background-color: rgb(147, 94, 178);
@@ -606,7 +610,13 @@ h1 {
     border-style: none;
     border-color: rgb(147, 94, 178);
     font-family: 'Poppins', sans-serif;
-    margin-top: 375px;
+    margin-top: 345px;
+    margin-left: 105px;
+}
+#clear-cart:hover {
+    cursor: pointer;
+    background-color: rgb(72, 46, 86);
+
 }
 #buy-button{
     height: 10vh;

@@ -250,7 +250,7 @@ $("#loginSubmit").click(function () {
   $("#profilePG").fadeIn();
 
   $(".defaultbg").css("background-size", "cover");
-  $("#bottom").css("margin-top", "25px");
+  $("#bottom").css("margin-top", "50px");
 
   $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
