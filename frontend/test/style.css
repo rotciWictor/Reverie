@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@600&family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+
 
 img, body {
     margin: 0;
@@ -14,6 +16,29 @@ body {
 p, h3 {
     font-style: none;
     margin: 0%;
+}
+
+h1 {
+    margin: none;
+    text-align: center;
+}
+
+#h2effect {
+    font-family: "Luckiest Guy", cursive;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+      0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+      0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+      -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
+}
+
+.shadow{
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+      0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+      0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+      -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
 }
 
 .defaultbg {
@@ -62,14 +87,11 @@ p, h3 {
     row-gap: 50px;
 }
 
-
 .header {
     width: 100%;
     height: 75px;
     background-color: rgba(255, 255, 255, 0);
     display: flex;
-
-    
 }
 
 #homeBtn {
@@ -109,7 +131,7 @@ p, h3 {
     display: flex;
     position: absolute;
     top: 0px;
-    left: 190px;
+    left: 170px;
     width: 210px; 
     height: 210px;
 
@@ -143,20 +165,20 @@ p, h3 {
 
 
 #firstBox {
-    width: 412px;
-    height: 230px;
+    width: 1000px;
+    height: 250px;
     display: flex;
-    align-items: space-between;
-    justify-content: space-between;
-    margin-left: 160px;
-    margin-top: 110px;
+    flex-direction: row;
+    margin-left: 120px;
+    margin-top: 70px;
     font-family: 'Forum', cursive;
     text-align: justify;
+ 
 }
 
     #astronautText {
-        margin-left: 50px;
-        
+        width: 400px;
+        height: 100px;
     }
 
 .learnMoreBtn {
@@ -370,15 +392,15 @@ p, h3 {
 }
 
 #loginTitleTxt {
+    text-align: center;
     display: flex;
-    position: absolute;
-    top: 80px;
-    left: 140px;
+
+    padding-bottom: 100px;
     color: white;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', 'sans-serif';
     font-size: 46px;
+    font-family: 'Forum', cursive;
 
 }
 
@@ -425,19 +447,29 @@ p, h3 {
               cursor: pointer;
           }
          #loginButtonSubtext {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Forum', cursive;
             margin-left: 100px;
          }
          #loginButtonSubtext:hover {
              cursor: pointer;
          }
-
+#profileInnerData {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 15px;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: #95796f;
+    background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+}
 #profileInfos {
     display: flex;
     margin-top: 100px;
-    align-items: flex-start;
-    justify-content: space-between;
-    font-family: 'Hind Vadodara', sans-serif;
+    color: white;
+    font-family: 'Forum', cursive;
+    
 }    
      #optionsBox {
          display: flex;
@@ -445,24 +477,40 @@ p, h3 {
          row-gap: 0px;
          width: 304px;
          height: 416px;
-         margin-top: 50px;
+         font-family: 'Poppins', sans-serif;
      }
          .profileButtons {
+             color: white;
              width:304px;
              height: 89px; 
-             
+             background-color: #95796f;
+             background-image: linear-gradient(315deg, #747893 0%, #6b4e5f 74%);
+             border-style: none;
+             font-weight: bold;
+             font-family: 'Poppins', sans-serif;
          }
+.profileButtons:hover {
+          cursor: pointer;
+        background-color: #624f49;
+         background-image: linear-gradient(315deg, #4a4d5f 0%, #483440 74%);
+
+}
      #personalData {
          border-radius: 15px;
-         font-family: 'Poppins', sans-serif;
-
+         font-family: 'Forum', cursive;
+         margin-left: 50px;
+         
      }  
          .personalDataBox {
-             border-radius: 40px;
+             border-radius: 3px;
              width: 278px;
              height: 44px;
              box-shadow: 0, 0, 0, 0;
-             border-color: white;
+             border-color: black;
+             border-left: none;
+             border-right: none;
+             border-top: none;
+             background-color: #534853;
          }
 
          .profileHeaderText {
@@ -470,20 +518,29 @@ p, h3 {
          }
 
      #acessData {
-         margin-right: 100px;
-         font-family: 'Poppins', sans-serif;
+         display: flex;
+         font-family: 'Forum', cursive;
+         flex-direction: column;
+         margin-right: 75px;
+
+         margin-bottom: 105px;
 
      } 
          .modifyLoginInfo {
-             width: 278px;
-             height: 64px;
-             background-color: #C895E4;
-             border-radius: 30px;
-             border-color: #C895E4;
-             color: white;
-             font-size: 15px;
-             font-family: 'Poppins', sans-serif;
-             font-style: bolder;
+            width: 303px;
+            height: 53px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
+         }
+         .modifyLoginInfo:hover{
+            cursor: pointer;
+            background-color: #624f49;
+             background-image: linear-gradient(315deg, #4a4d5f 0%, #483440 74%);
          }
          
 #profileShoppingCart {
@@ -494,64 +551,59 @@ p, h3 {
     margin-left: 100px;
 
 }
-#cartPG{
+
+#cart {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#cart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 12vh;
-    border: red solid 2px;
-    width: 62vw;
-    height: 80vh;
+    left: 50px;
+    width: 600px;
+    margin-top: 200px;
+    margin-left: 50px;
 }
 #cart-box{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border: greenyellow solid 2px;
-    width: 55vw;
-    height: 70vh;
-    overflow:scroll;
+    width: 700px;
+    height: 500px;
+    overflow: scroll;
+    background-color:#88687c;
+    overflow-x: hidden;
+
 }
+
 .product-placeholder{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
-    border: yellow solid 2px;
     width: 48vw;
     height: 30vh;
 }
-#cart-aside{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
-    margin-top: 12vh;
-    border: blue solid 2px;
-    width: 38vw;
-    height: 80vh;
-}
+
 #checkout-box{
-    background-color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-direction:column;
-    border: orange solid 2px;
-    width: 35vw;
-    height: 40vh;
-    margin-top: 7vh;
+    margin-top: 20px;
+    margin-left: 50px;
+    justify-content: flex-start;
+    background-color:#88687c;
+    width: 350px;
+    height: 500px;
+    font-family: "Forum", cursive;
+    color: white;
 }
+
 #clear-cart{
-    display: flex;
-    justify-self: flex-end;
-    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(147, 94, 178);
+    color: white;
+    border-style: none;
+    border-color: rgb(147, 94, 178);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 375px;
 }
 #buy-button{
     height: 10vh;
@@ -571,101 +623,62 @@ p, h3 {
     display: flex;
     background-color: #d3abe688;
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     font-size: 30px;
     width: 400px;
-    height: 360px;
+    height: 400px;
     flex-direction: column;
     row-gap: 4px;
     align-items: center;
-    /* border-radius: 30px; */
-    border: solid purple 1px;
-    color: whitesmoke;
-    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+    font-family: "Forum", cursive;
+    color: white;
     cursor: pointer;
 }
 .itemContainer > div:hover{
-    background-color: #d5b6e488;
-
+    background-color: #6a544d;
+    background-image: linear-gradient(315deg, #4b4d5f 0%, #644959 74%);
 }
 
 .itemContainer > div > p{
+   
     text-align: center;
+    margin-bottom: 25px;
 }
 
-.itemTitle {
-    font-size: 22px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: bolder;
-    color:purple;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: whitesmoke
-}
-
-.itemDescription {
-    font-size: 16px;
-    text-align: left;
-
-}
-
-.itemPrice {
-    font-size: 20px;
-}
-
-.itemDiscount {
-    font-size: 16px;
-    color: #c00606;
-    font-weight: bold;
-}
-
-.itemAddCartText {
-    font-size: 12px;
-    color: #810606;
-}
-
-.itemAddCartButton {
-    background-color:#C895E4;
-    border-color: grey;
-    border-style: none;
-    box-shadow: none;
+#remove61 {
+    width: 253px;
+            height: 43px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
 
 }
 
-.itemAddCartButton:hover {
-    background-color:#a97bc2
+#remove61:hover{
+    cursor: pointer;
+    background-color: #6a5851;
+            background-image: linear-gradient(315deg, #525567 0%, #5b4151 74%);
+
 }
 
-#hackerProductPG {
+#cartPopUp {
     display: none;
-    width: 700px;
-    height: 600px;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 250px;
-}
-
-#runnerProductPG {
-    display: none;
-    width: 700px;
-    height: 600px;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 250px;
-}
-
-.productBox {
-    width: 325px;
-    height: 250px;
+    position: absolute;
+    left: 990px;
+    padding: 10px;
+    width: 180px;
+    height: 50px;
     background-color: white;
-    border-radius: 20px;
+    font-family: "Forum", cursive;
+    font-weight: bolder;
+    color: white;
+    background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
 }
-
-.productBoxText {
-    margin-left: 30px;
-    margin-top: 60px;
-
-}
-
 
 #contactForms {
     display: flex;
@@ -877,4 +890,79 @@ p, h3 {
     left: 84vw;
 }
     
+
+     html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      
+      .pic-ctn {
+          display: flex;
+         width: 100vw;
+         height: 400px;
+
+
+      }
+      
+      @keyframes display {
+        0% {
+          transform: translateX(200px);
+          opacity: 0;
+        }
+        10% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        20% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        30% {
+          transform: translateX(-200px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(-200px);
+          opacity: 0;
+        }
+      }
+      
+      .pic-ctn {
+          display: flex;
+          position: absolute;
+        margin-bottom: 150px;
+        width: 100vw;
+        height: 300px;
+        
+      }
+      
+      .pic-ctn > img {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 100px);
+        opacity: 0;
+        animation: display 20s infinite;
+      }
+      
+      img:nth-child(2) {
+        animation-delay: 5s;
+      }
+      img:nth-child(3) {
+        animation-delay: 10s;
+      }
+      img:nth-child(4) {
+        animation-delay: 15s;
+      }
+      img:nth-child(5) {
+        animation-delay: 20s;
+      }
+
+      .pic {
+          display: flex;
+          margin-bottom: 50px;
+      }
+
+ 
 

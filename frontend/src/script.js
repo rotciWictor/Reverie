@@ -3,6 +3,18 @@ $("#homeBtn").click(function () {
   $("#homepage").fadeIn();
   $("#bottom").css("margin-top", "990px");
   $(".defaultbg").css("background-size", "contain");
+  $("#homeBtn").css(
+    "color", "rgb(147, 94, 178)"
+  )
+  $("#catalogueBtn").css(
+    "color", "white"
+  )
+  $("#aboutUsBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
 
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
@@ -18,6 +30,18 @@ $("#mainHeaderLogo").click(function () {
   $("#homepage").fadeIn();
   $("#bottom").css("margin-top", "990px");
   $(".defaultbg").css("background-size", "contain");
+  $("#homeBtn").css(
+    "color", "rgb(147, 94, 178)"
+  )
+  $("catalogueBtn").css(
+    "color", "white"
+  )
+  $("#aboutUsBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
 
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
@@ -33,6 +57,18 @@ $("#catalogueBtn").click(function () {
   getProducts();
 
   $("#catalogue").fadeIn();
+  $("#catalogueBtn").css(
+    "color", "rgb(147, 94, 178)"
+  )
+  $("#homeBtn").css(
+    "color", "white"
+  )
+  $("#aboutUsBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
 
   $("#bottom").css("margin-top", "150px");
   $(".defaultbg").css("background-size", "cover");
@@ -86,6 +122,18 @@ $("#aboutUsBtn").click(function () {
   $("#aboutUsPG").fadeIn();
   $("#bottom").css("margin-top", "200px");
   $(".defaultbg").css("background-size", "cover");
+  $("#aboutUsBtn").css(
+    "color", "rgb(147, 94, 178)"
+  )
+  $("#catalogueBtn").css(
+    "color", "white"
+  )
+  $("#homeBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
 
   $("#productPG").fadeOut();
   $("#hackerProductPG").fadeOut();
@@ -102,6 +150,18 @@ $("#profileLogo").click(function () {
   $("#loginPG").fadeIn();
   $("#bottom").css("margin-top", "1000px");
   $(".defaultbg").css("background-size", "cover");
+  $("#homeBtn").css(
+    "color", "white"
+  )
+  $("#catalogueBtn").css(
+    "color", "white"
+  )
+  $("#aboutUsBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
 
   $("#aboutUsPG").fadeOut();
   $("#productPG").fadeOut();
@@ -163,8 +223,6 @@ $("#cartLogo").click(function () {
   subtotal();
   counterPG = 0;
   $("#cartPG").fadeIn();
-
-  $("#bottom").css("margin-top", "270px");
   $(".defaultbg").css("background-size", "cover");
   $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
@@ -174,6 +232,18 @@ $("#cartLogo").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
+  $("#homeBtn").css(
+    "color", "white"
+  )
+  $("#catalogueBtn").css(
+    "color", "white"
+  )
+  $("#aboutUsBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
 });
 
 $("#loginSubmit").click(function () {
@@ -254,6 +324,17 @@ $("#profileCartBtn").click(function () {
   $("#aboutUsPG").fadeOut();
 });
 
+// $(".product-div").click(function () {
+//   $("#cartPopUp").fadeIn()
+//   $("#cartPopUp").css(
+//     "display", "flex"
+//   )
+//   setTimeout(() => {
+//     $("#cartPopUp").fadeOut()
+//   }, 2500);
+
+// })
+
 $(".learnMoreBtn").click(function () {
   $("#aboutUsPG").fadeIn();
   $("#bottom").css("margin-top", "200px");
@@ -282,12 +363,9 @@ async function getProducts() {
     showcase.removeChild(showcase.firstChild);
   }
   products.forEach((element) => {
-    const newProduct = `<div id='product${element.id}' sql-id='${
-      element.id
-    }' onclick="addcart(${element.id})">
-      <img id="productImage${element.id}" width="250" height="175" src='${
-      element.image
-    }'/>
+
+    const newProduct = `<div id='product${element.id}' sql-id='${element.id}' class="product-div" onclick="addcart(${element.id})">
+      <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
       <p id="productName${element.id}" class="itemTitle">${element.name}</p>
       <p id="productPrice${
         element.id
@@ -356,6 +434,12 @@ async function addcart(id) {
                         </div>`;
     cartBox.innerHTML += newCartItem;
     subtotal();
+    
+      $("#cartPopUp").fadeIn()
+      $("#cartPopUp").css("display", "flex")
+      setTimeout(() => {
+        $("#cartPopUp").fadeOut()
+      }, 2500);
   });
   counter = 0;
 }

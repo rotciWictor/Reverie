@@ -19,6 +19,7 @@ p, h3 {
 }
 
 h1 {
+    margin: none;
     text-align: center;
 }
 
@@ -85,7 +86,6 @@ h1 {
     flex-direction: column;
     row-gap: 50px;
 }
-
 
 .header {
     width: 100%;
@@ -335,14 +335,15 @@ h1 {
     justify-content: center;
     width: 550px;
     height: 700px;
-    background-color: #ba9a8e;
-    background-image: linear-gradient(315deg, #ba9a8e 0%, #96705b 74%);
+    background-color: #644278;
+    background-image: linear-gradient(315deg, #5c408c 0%, #9d649c 74%);
 }
 
 .registerBox{
          width: 444px;
          height: 41px;
-         background-color:#96705b;
+         background-color: #d3c0dd;
+         background-image: linear-gradient(315deg, #bfafda 0%, #a884a8 74%);
          font-family: 'Poppins', sans-serif;
          font-style: bolder;
          font-size: 16px;
@@ -386,8 +387,8 @@ h1 {
     justify-content: center;
     width: 550px;
     height: 700px;
-    background-color: #ba9a8e;
-    background-image: linear-gradient(315deg, #ba9a8e 0%, #96705b 74%);
+    background-color: #644278;
+    background-image: linear-gradient(315deg, #5c408c 0%, #9d649c 74%);
 
 }
 
@@ -407,7 +408,8 @@ h1 {
     .loginBox {
          width: 444px;
          height: 41px;
-         background-color:#96705b;
+         background-color: #d3c0dd;
+         background-image: linear-gradient(315deg, #bfafda 0%, #a884a8 74%);
          font-family: 'Poppins', sans-serif;
          font-style: bolder;
          font-size: 16px;
@@ -448,7 +450,7 @@ h1 {
           }
          #loginButtonSubtext {
             font-family: 'Forum', cursive;
-            margin-left: 100px;
+            margin-left: 125px;
          }
          #loginButtonSubtext:hover {
              cursor: pointer;
@@ -552,97 +554,59 @@ h1 {
 
 }
 
-#cartOverBox {
+#cart {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}        
-    #cartProductBox {
-    display: flex;
-    width: 710px;
-    height: 668px;
+    left: 50px;
+    width: 600px;
     margin-top: 200px;
-    margin-left: 30px;
-    background-color: white;
-    border-radius: 50px;
-    align-items: flex-start;
-    justify-content: space-between;
-}     
-         #cartProductImage {
-         width: 315px;
-         height: 186px;
-         border-radius: 20px;
-         margin-top: 30px;
-         margin-left: 30px;
-     }      
-     
-          #cartProductTitle {
-         margin-right: 250px;
-         margin-top: 30px;
-     }
-
-     #cartValueBox {
-         display: flex;
-    width: 236px;
-    height: 113px;
-    border-radius: 30px;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    margin-top: 12vh;
-    border: red solid 2px;
-    width: 62vw;
-    height: 80vh;
+    margin-left: 50px;
 }
 #cart-box{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border: greenyellow solid 2px;
-    width: 55vw;
-    height: 70vh;
-    overflow:scroll;
+    width: 1000px;
+    height: 500px;
+    overflow: scroll;
+    background-color:#88687c;
+    overflow-x: hidden;
+
+
 }
+
 .product-placeholder{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
-    border: yellow solid 2px;
     width: 48vw;
     height: 30vh;
 }
-#cart-aside{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
-    margin-top: 12vh;
-    border: blue solid 2px;
-    width: 38vw;
-    height: 80vh;
-}
+
 #checkout-box{
-    background-color: white;
     display: flex;
-    position: absolute;
-    left: 1080px;
-    width: 142px;
-    height: 609px;
-    background-color: #B5179E;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-direction:column;
-    border: orange solid 2px;
-    width: 35vw;
-    height: 40vh;
-    margin-top: 7vh;
+    margin-top: 20px;
+    margin-left: 50px;
+    justify-content: flex-start;
+    background-color:#88687c;
+    width: 350px;
+    height: 500px;
+    font-family: "Forum", cursive;
+    color: white;
 }
+
 #clear-cart{
-    display: flex;
-    justify-self: flex-end;
-    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(147, 94, 178);
+    color: white;
+    border-style: none;
+    border-color: rgb(147, 94, 178);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 375px;
 }
 #buy-button{
     height: 10vh;
@@ -662,101 +626,62 @@ h1 {
     display: flex;
     background-color: #d3abe688;
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     font-size: 30px;
     width: 400px;
-    height: 360px;
+    height: 520px;
     flex-direction: column;
     row-gap: 4px;
     align-items: center;
-    /* border-radius: 30px; */
-    border: solid purple 1px;
-    color: whitesmoke;
-    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+    font-family: "Forum", cursive;
+    color: white;
     cursor: pointer;
 }
 .itemContainer > div:hover{
-    transform: translateY(-10px);
-    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.75);
+    background-color: #6a544d;
+    background-image: linear-gradient(315deg, #4b4d5f 0%, #644959 74%);
 }
 
 .itemContainer > div > p{
+   
     text-align: center;
+    margin-bottom: 25px;
 }
 
-.itemTitle {
-    font-size: 22px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: bolder;
-    color:purple;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: whitesmoke
-}
-
-.itemDescription {
-    font-size: 16px;
-    text-align: left;
-
-}
-
-.itemPrice {
-    font-size: 20px;
-}
-
-.itemDiscount {
-    font-size: 16px;
-    color: #c00606;
-    font-weight: bold;
-}
-
-.itemAddCartText {
-    font-size: 12px;
-    color: #810606;
-}
-
-.itemAddCartButton {
-    background-color:#C895E4;
-    border-color: grey;
-    border-style: none;
-    box-shadow: none;
+#remove61 {
+    width: 253px;
+            height: 43px;
+            background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0;
+            border-style: none;
 
 }
 
-.itemAddCartButton:hover {
-    background-color:#a97bc2
+#remove61:hover{
+    cursor: pointer;
+    background-color: #6a5851;
+            background-image: linear-gradient(315deg, #525567 0%, #5b4151 74%);
+
 }
 
-#hackerProductPG {
+#cartPopUp {
     display: none;
-    width: 700px;
-    height: 600px;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 250px;
-}
-
-#runnerProductPG {
-    display: none;
-    width: 700px;
-    height: 600px;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 250px;
-}
-
-.productBox {
-    width: 325px;
-    height: 250px;
+    position: absolute;
+    left: 990px;
+    padding: 10px;
+    width: 180px;
+    height: 50px;
     background-color: white;
-    border-radius: 20px;
+    font-family: "Forum", cursive;
+    font-weight: bolder;
+    color: white;
+    background-color: #ba9a8e;
+            background-image: linear-gradient(315deg, #9fa4c4 0%, #9e768f 74%);
 }
-
-.productBoxText {
-    margin-left: 30px;
-    margin-top: 60px;
-
-}
-
 
 #contactForms {
     display: flex;
