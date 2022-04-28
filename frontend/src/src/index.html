@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta property="og:title" content="Reverie">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Reverie</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer type="module" id="" src="jwt-decode.js"></script>
+    <script defer type="module" src="script.js"></script>
+</head>
+
+<body class='defaultbg'>
+    <div>
+        <img id="mainHeaderLogo" src="./img/main_logo.svg">
+        <div class='header'>
+            <div id='insideHeader'>
+                <p id="homeBtn">Página Inicial</p>
+                <p id="catalogueBtn">Produtos</p>
+                <p id="contactBtn">Contato</p>
+                <p id="aboutUsBtn">Sobre nós</p>
+                <img id="profileLogo" width="50px" height="50px" src="./img/profile.png">
+                <img id="cartLogo" width="50px" height="40px" src="./img/cartLogo.png">
+                <div id='cart-sign'>0</div>
+            </div>
+        </div>
+
+        <div id="cartPopUp">
+            <p>Um pacote foi adicionado ao carrinho!</p>
+        </div>
+
+        <section id='homepage' name='homepage'>
+            <div id="firstBox">
+                <div id="astronautText">
+                    <h1 class="shadow">
+                        Soluções personalizadas para a realização de seus sonhos.
+                    </h1>
+                    <h2 id="h2effect"> Tens um sonho?</h2>
+                    <h4 class="shadow">Realizamos com você! Por apenas alguns centavos de milhões organizamos sua vida tendo em vista a 
+                        realização dos seus sonhos! Nossos pacotes são feitos pensando no tempo médio gasto para a
+                        realização
+                        dos seus objetivos e planejamos sua vida de acordo!</h4> <br><br>
+                    <button class="learnMoreBtn">SAIBA MAIS</button>
+                </div>
+                <div class="pic-ctn">
+                    <img width="475px" height="325px" src="./img/astroship.png" alt="" class="pic">
+                    <img width="475px" height="325px" src="./img/fonepilot.png" alt="" class="pic">
+                    <img width="475px" height="325px" src="./img/rockstar.png" alt="" class="pic">
+                    <img width="475px" height="325px" src="./img/surfer.png" alt="" class="pic">
+                    <img width="475px" height="325px" src="./img/footballer.png" alt="" class="pic">
+                </div>
+            </div>
+
+            <div id="secondBox">
+                <img id="secondBoxImg" src="./img/secondboxbg.png">
+                <div id="secondBoxText">
+                    <div id="insideSecondBox">
+                        <div>
+                            <h1>Uma empresa especializada em revolucionar sua experiência em consultoria.</h1>
+                        </div>
+                        <div>
+                            <p>Conheça a Reverie, uma empresa dedicada a pensar junto com você o passo-a-passo para a
+                                realização dos seus sonhos. Com pacotes genéricos, que são adequados a sua realidade, ou
+                                pacotes personalizáveis, estudamos caso a caso e criamos uma solução ágil e concreta
+                                para que você consiga realizar os seus sonhos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="thirdBox">
+                <div id="thirdBoxTitle">
+                    <h1>
+                        SERVIÇOS
+                        <div id="thirdBoxTitleLine"></div>
+                    </h1>
+                </div>
+                <div id="thirdBoxBoxes">
+
+                    <div id="serviceBoxOne">
+                        <div class="serviceBoxesInside">
+                            <img src="./img/serviceboxone.png">
+                            <h1>Finanças</h1>
+                            <p>Estudamos sua situação financeira e personalizamos o pacote para valorizar o seu
+                                dinheiro!</p>
+                            <br><br>
+                            <button class="learnMoreBtn">SAIBA MAIS</button>
+                        </div>
+                    </div>
+
+                    <div id="serviceBoxTwo">
+                        <div class="serviceBoxesInside">
+                            <img src="./img/serviceboxtwo.png">
+                            <h1 class="shadow">Comunicação</h1>
+                            <p >Mantemos uma comunicação constante, com um atendimento ao cliente brilhante!</p>
+                            <br><br>
+                            <button class="learnMoreBtn">SAIBA MAIS</button>
+                        </div>
+                    </div>
+
+                    <div id="serviceBoxThree">
+                        <div class="serviceBoxesInside">
+                            <img src="./img/serviceboxthree.png">
+                            <h1 class="shadow">Processos</h1>
+                            <p>Organizamos o passo-a-passo para o cumprimento do seu objetivo, tudo dentro da sua agenda!
+                            </p>
+                            <br><br>
+                            <button class="learnMoreBtn">SAIBA MAIS</button>
+                        </div>
+                    </div>
+
+                    <div id="serviceBoxFour">
+                        <div class="serviceBoxesInside">
+                            <img src="./img/serviceboxfour.png">
+                            <h1 class="shadow">Pessoas</h1>
+                            <p>Mobilizamos um time completo e com a expertise necessária para criar soluções.</p>
+                            <br><br>
+                            <button class="learnMoreBtn">SAIBA MAIS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id='registerPG'>
+            <div id="registerForms">
+                <form>
+                    <p id="loginTitleTxt">Cadastre-se</p>
+                    <input placeholder="Nome" class="registerBox" type="text" id="name" name="name"><br><br>
+                    <input placeholder="E-Mail" class="registerBox" type="text" id="email" name="email"><br><br>
+                    <input placeholder="Telefone" class="registerBox" type="text" id="phone" name="phone"><br><br>
+                    <input placeholder="Endereço" class="registerBox" type="text" id="address" name="adress"><br><br>
+                    <input placeholder="Senha" class="registerBox" type="text" id="password" name="password"><br><br>
+                    <input placeholder="Confirme sua senha" class="registerBox" type="text" id="password"
+                        name="password"><br><br>
+                    <input type="button" id="registerSubmit" value="Registrar">
+                </form>
+            </div>
+        </section>
+
+        <section id='loginPG'>
+            <div id="loginForms">
+                <form>
+                    <p id="loginTitleTxt">Conectar-se</p>
+                    <input placeholder="E-mail" class="loginBox" type="text" id="email" name="email"><br><br>
+                    <input placeholder="Senha" class="loginBox" type="text" id="password" name="password"><br><br>
+                    <span>
+                        <p id="loginSubtext">Esqueci minha senha</p>
+                    </span>
+                    <input type="button" id="loginSubmit" value="Entrar">
+                    <span>
+                        <p id="loginButtonSubtext">Ainda não sou cadastrado</p>
+                    </span>
+                </form>
+            </div>
+        </section>
+
+        <section id='profilePG'>
+            <div id="profileInfos">
+                <div id="optionsBox">
+                    <button class="profileButtons" id="profileData">SEUS DADOS</button>
+                    <button class="profileButtons" id="profileCartBtn">CARRINHO</button>
+                    <button class="profileButtons" id="profileOrderBtn">PEDIDOS</button>
+                    <button class="profileButtons" id="profileQuit">SAIR</button>
+
+                </div>
+                <div id="profileInnerData">
+                    <div id="personalData">
+                        <h4 class="profileHeaderText">Dados Pessoais</h4>
+                        <label for="profileName">Nome Completo</label><br><br>
+                        <input class="personalDataBox" type="text" id="profileName" name="name"><br><br>
+                        <label for="birthDate">Data de Nascimento</label><br><br>
+                        <input class="personalDataBox" type="text" id="birthDate" name="name"><br><br>
+                        <label for="registerNumber">CPF</label><br><br>
+                        <input class="personalDataBox" type="text" id="registerNumber" name="name"><br><br>
+                        <label for="profilePhone">Telefone</label><br><br>
+                        <input class="personalDataBox" type="text" id="profilePhone" name="name"><br><br>
+                    </div>
+                    <div id="acessData">
+                        <h4 class="profileHeaderText">Dados de Acesso</h4>
+                        <label for="profileEmail">E-mail atual</label><br><br>
+                        <input class="personalDataBox" type="text" id="profileEmail" name="name"><br><br>
+                        <button class="modifyLoginInfo">Alterar Email</button><br><br>
+                        <button class="modifyLoginInfo">Alterar Senha</button>
+                    </div>
+                </div>
+            </div>
+            <div id="profileShoppingCart">
+                
+    
+            </div>
+        </section>
+        
+
+        <section id='cartPG'>
+            <main id="cart">
+                <div id="cart-box">
+                    
+                </div>
+            </main>
+            <aside id="cart-aside">
+                    <div id="checkout-box">
+                    <h2>Subtotal:</h2>
+                    <h3 id="subtotal"></h3>
+                    <input id='clear-cart'type="button" class="learMoreBtn" value="Limpar Carrinho" onclick=clear()> 
+                </div> 
+            </aside>
+           
+    </section>
+
+
+    <section id="catalogue">
+        <div id="showcase" class="itemContainer">
+    
+        </div>
+            
+        </div>
+    </section>
+
+    <section id="productPG">
+        <div id="hackerProductPG">
+            <img width="350px" src="./img/astronautproduct.png">
+            <div id="productDescription">
+                <h2>Kit Astronauta</h2>
+                <h3>Preço: R$30000.00</h3>
+                <div class="productBox">
+                    <div class="productBoxText">
+                        <h4> Descrição </h4>
+                        <p> Ja pensou em viajar até o espaço?</p>
+                        <h4> Inclui: </h4>
+                        <ul>
+                            <li> Foguete personalizável </li>
+                            <li> Traje Espacial </li>
+                            <li> Agendamento flexível </li>
+                            <li> Visita á Nasa </li>
+                        </ul>
+                        <p class="itemAddCartText">
+                            Adicionar ao carrinho
+                            <button class="itemAddCartButton">+</button>
+                            qntd
+                            <button class="itemAddCartButton">-</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="runnerProductPG">
+            <img width="350px" src="./img/formulaone.png">
+            <div id="productDescription">
+                <h2>Kit Fórmula 1</h2>
+                <h3>Preço: R$20000.00</h3>
+                <div class="productBox">
+                    <div class="productBoxText">
+                        <h4> Descrição </h4>
+                        <p> Seu nome chegará ás alturas como piloto.</p>
+                        <h4> Inclui: </h4>
+                        <ul>
+                            <li> Carro estilo fórmula 1 </li>
+                            <li> Equipe de manutenção </li>
+                            <li> Agendamento flexível </li>
+                            <li> Visita ao túmulo do Airton Senna</li>
+                        </ul>
+                        <p class="itemAddCartText">
+                            Adicionar ao carrinho
+                            <button class="itemAddCartButton">+</button>
+                            qntd
+                            <button class="itemAddCartButton">-</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="aboutUsPG">
+        <div id="aboutUsText">
+            <h2>Quem Somos</h2>
+        </div>
+
+        <div id="aboutUsFirstBox">
+            <div id="aboutUsFirstTxt">
+                <h2>Somos realizadores de sonhos.</h2>
+                <p>Somos realizadores de sonhos, trabalhamos com afinco e vontade diretamente proporcional a sua
+                    necessidade de realizar seus objetivos.</p> <br>
+                <p>Com mais de dez anos de experiência, atendemos em todo o país desde 2012, concretizando os mais
+                    diversos objetivos ao longo do tempo.</p>
+            </div>
+            <div>
+                <img width="260px" height="320px" src="./img/aboutusfirstpicture.png">
+            </div>
+        </div>
+        <div class="aboutUsRow">
+            <h2>"O sonho que se sonha junto é o mais louvor"</h2>
+            <h2 id="aboutUsCitation"> - Kleber Cavalcante Gomes </h2>
+        </div>
+
+        <div id="aboutUsSecondBox">
+            <div>
+                <img width="420px" height="260px" src="./img/aboutussecondpicture.png">
+            </div>
+            <div id="aboutUsSecondTxt">
+                <h2>Por onde começar?</h2>
+                <p>Sabe aquela aspiração que existe dentro de você para realizar seus desejos? Pense naquele desejo
+                    que ficou para trás por quaisquer motivos.</p> <br>
+                <p>Com a decisão do objetivo a ser realizado tomada, escolha um pacote pré-definido que te
+                    contemple, ou crie um pacote personalizado com os detalhes requisitados e pronto, iremos
+                    trabalhar a todo vapor para que eu objetivo seja alcançado!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="bottom">
+        <div id="bottomBox">
+            <h1 id="contactTitle">
+                CONTATO
+            </h1>
+
+            <div id="addressTitleLine"></div>
+
+            <div id="addressBox">
+                <h2>
+                    Endereço:
+                </h2>
+                <p>Rua das Amélias, 327</p>
+                <p>São Paulo, SP, 12345-678</p>
+                <h2>
+                    Telefone:
+                </h2>
+                <p>(11) 7219 - 4288</p>
+            </div>
+
+            <div id="talkToUs">
+                <h2>Fale Conosco:</h2>
+                <p>Preencha o formulário abaixo e nos deixe uma mensagem!</p> <br>
+                <form>
+                    <input placeholder="Nome" class="contactBox" type="text" id="name" name="name"><br>
+                    <input placeholder="E-Mail" class="contactBox" type="text" id="email" name="email"><br><br>
+                    <input placeholder="Mensagem" id="messageBox" type="text" name="email"><br><br>
+                    <input type="submit" id="messageSubmitBtn" value="Enviar">
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
