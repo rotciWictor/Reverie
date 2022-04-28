@@ -498,6 +498,95 @@ function removeProduct(id) {
   subtotal();
 }
 
+// // session control
+
+// const email = document.querySelector("#login-email");
+// const password = document.querySelector("#login-password");
+// const btnLogin = document.querySelector("#loginSubmit");
+
+// async function login() {
+//   const loginData = {
+//     email: email.value,
+//     password: password.value,
+//   };
+//   console.log(email.value, password.value);
+//   const myHeaders = {
+//     method: "POST",
+//     credentials: "include",
+//     body: JSON.stringify(loginData),
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//   };
+
+//   console.log("logou");
+//   let result;
+//   try {
+//     const test = await fetch("http://localhost:3000/login", myHeaders);
+//     result = await test.json();
+//   } catch (error) {
+//     console.error(error);
+//   }
+//   accessToken = result.accessToken;
+//   const sessions = await control(accessToken);
+
+//   console.log(accessToken);
+//   return result;
+// }
+// btnLogin.addEventListener("click", login);
+
+
+
+// const registerName = document.querySelector("#name");
+// const registerEmail = document.querySelector("#email");
+// const registerCPF = document.querySelector("#cpf");
+// const registerPassword = document.querySelector("#password");
+// const registerAddress = document.querySelector("#address");
+// const registerTelephone = document.querySelector("#phone");
+// const registerZipCode = document.querySelector("#zip-code");
+// const registerConfirmPassword = document.querySelector("#confirm-password");
+// const registerBtn = document.querySelector('#registerSubmit')
+
+
+// async function registration() {
+//   if (registerPassword.value != registerConfirmPassword.value) {
+//     return alert("Senhas diferem");
+//   }
+//   const registrationData = {
+//     data: {
+//       name: registerName.value,
+//       email: registerEmail.value,
+//       cpf: registerCPF.value,
+//       password: registerPassword.value,
+//       address: registerAddress.value,
+//       telephone: registerTelephone.value,
+//       zip_code: registerZipCode.value,
+//     },
+//   };
+//   console.log(
+//     registerName.value,
+//     registerEmail.value,
+//     registerCPF.value,
+//     registerPassword.value,
+//     registerAddress.value,
+//     registerTelephone.value,
+//     registerZipCode.value
+//   );
+//   const myHeaders = {
+//     method: "POST",
+//     credentials: "include",
+//     body: JSON.stringify(registrationData),
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//   };
+//   await fetch("http://localhost:3000/registration", myHeaders)
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+// }
+// registerBtn.addEventListener("click", registration);
+
 // session control
 
 const email = document.querySelector("#login-email");
@@ -543,11 +632,11 @@ const registerAddress = document.querySelector("#address");
 const registerTelephone = document.querySelector("#phone");
 const registerZipCode = document.querySelector("#zip-code");
 const registerConfirmPassword = document.querySelector("#confirm-password");
-const registerBtn = document.querySelector('#registerSubmit')
+const registerBtn = document.querySelector("#registerSubmit");
 
 async function registration() {
-  if(registerPassword.value != registerConfirmPassword.value){
-    return alert("Senhas diferem")
+  if (registerPassword.value != registerConfirmPassword.value) {
+    return alert("Senhas diferem");
   }
   const registrationData = {
     data: {
@@ -583,3 +672,42 @@ async function registration() {
     .catch((error) => console.error(error));
 }
 registerBtn.addEventListener("click", registration);
+
+// async function registration() {
+//   if(registerPassword.value != registerConfirmPassword.value){
+//     return alert("Senhas diferem")
+//   }
+//   const registrationData = {
+//     data: {
+//       name: registerName.value,
+//       email: registerEmail.value,
+//       cpf: registerCPF.value,
+//       password: registerPassword.value,
+//       address: registerAddress.value,
+//       telephone: registerTelephone.value,
+//       zip_code: registerZipCode.value,
+//     },
+//   };
+//   console.log(
+//     registerName.value,
+//     registerEmail.value,
+//     registerCPF.value,
+//     registerPassword.value,
+//     registerAddress.value,
+//     registerTelephone.value,
+//     registerZipCode.value
+//   );
+//   const myHeaders = {
+//     method: "POST",
+//     credentials: "include",
+//     body: JSON.stringify(registrationData),
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//   };
+//   await fetch("http://localhost:3000/registration", myHeaders)
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
+// }
+// registerBtn.addEventListener("click", registration);
