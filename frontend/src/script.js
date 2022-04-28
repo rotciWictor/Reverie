@@ -383,44 +383,43 @@ subtotal();
 
 // session control
 
-const jwtDecode = require("./jwt-decode");
+const email = document.querySelector('#email')
+const password = document.querySelector('#password')
+const btnLogin = document.querySelector('#loginSubmit')
 
-let accessToken = '';
-let api_url = '/api';
-const divLogin = document.getElementById("div-login");
-const formLogin = document.getElementById("form-login");
-// const buttonGetUsers = document.getElementById("button-get-users");
-// const buttonDeleteToken = document.getElementById("button-delete-token");
-const pStatus = document.getElementById("login-status");
-
-let showLoginPanel = (bShow) => {
-  bShow ? divLogin.style.display = "flex" : divLogin.style.display = "none";
-}
-
-formLogin.onsubmit = async e => {
-  e.preventDefault();
-  const loginDetails = await login({ email: formLogin.email.value, password: formLogin.password.value });
-  console.log(loginDetails);
-  if (loginDetails.error) {
-    pStatus.innerText = loginDetails.error;
-    return;
+async function login(){
+  const loginData = {
+      email : email.value,
+      password: password.value
   }
-  accessToken = loginDetails.accessToken;
-  const jwtDecoded = jwtDecode(accessToken);
-  pStatus.innerHTML = `Conectado!`;
-  showLoginPanel(false);
-}
+console.log(email.value,password.value)
+  const myHeaders = {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(loginData),
+      headers:{
+          "content-type" : "application/json"
+      }
+  }
 
-async function login(data) {
-  //console.log(JSON.stringify(data));
-  const res = await fetch(`${api_url}/auth/login`, {
-    method: 'POST',
-    credentials:'include',
-    cache:'no-cache',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
-  return await res.json();
+  console.log("logou");
+  let result
+  try {
+      const test = await fetch('http://localhost:3000/clients/login/',myHeaders)
+      result = await test.json()
+  } catch (error) {
+      
+  }
+  accessToken = result.accessToken
+  const sessions = await control(accessToken)
+
+  console.log(accessToken)
+  return result
+}
+addEventListener('click',login)
+
+async function registration(){
+fetch
+
+
 }

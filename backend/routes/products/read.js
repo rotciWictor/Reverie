@@ -2,6 +2,8 @@ const dbConnection = require("../../modules/DbConection")
 // const queries = require("../../modules/queries.js");
 const router = require("express").Router();
 const url = require('url')
+const authenticateToken = require('../../middleware/authorization.js')
+
 
 router.get("/", async (req, res) => {
   
