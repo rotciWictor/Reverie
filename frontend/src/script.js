@@ -132,23 +132,36 @@ $("#loginButtonSubtext").click(function () {
 $("#cartLogo").click(function () {
   clearBoxOnly();
   const cartBox = document.getElementById("cart-box");
-  let counterPG = 0
+  let counterPG = 0;
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
-                            <img src="${element.image}" width="300px" height="180px">
+    const newCartItem = `<div id="product-placeholder${
+      element.id
+    }" class="product-placeholder">
+                            <img src="${
+                              element.image
+                            }" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
-                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
+                            <p>Preço: R$ ${element.price.toLocaleString(
+                              "pt-BR",
+                              { style: "currency", currency: "BRL" }
+                            )}</p>
+                            <input id="remove${
+                              element.id
+                            }" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${
+      element.id
+    })'>
+                            <input id="nd-item${
+                              element.id
+                            }" type="hidden" value="${counterPG++}" name="cart">
                           </div>
                         </div>`;
     cartBox.innerHTML += newCartItem;
   });
   subtotal();
-  counterPG = 0
+  counterPG = 0;
   $("#cartPG").fadeIn();
 
   $("#bottom").css("margin-top", "270px");
@@ -165,7 +178,7 @@ $("#cartLogo").click(function () {
 
 $("#loginSubmit").click(function () {
   $("#profilePG").fadeIn();
-  
+
   $(".defaultbg").css("background-size", "cover");
   $("#bottom").css("margin-top", "25px");
 
@@ -207,7 +220,7 @@ $("#profileData").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
-})
+});
 
 $("#profileQuit").click(function () {
   $("#homepage").fadeIn();
@@ -222,11 +235,9 @@ $("#profileQuit").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
-})
+});
 
-$("#profileOrderBtn").click(function () {
-
-})
+$("#profileOrderBtn").click(function () {});
 
 $("#profileCartBtn").click(function () {
   $("#cartPG").fadeIn();
@@ -241,7 +252,7 @@ $("#profileCartBtn").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
-})
+});
 
 $(".learnMoreBtn").click(function () {
   $("#aboutUsPG").fadeIn();
@@ -271,13 +282,23 @@ async function getProducts() {
     showcase.removeChild(showcase.firstChild);
   }
   products.forEach((element) => {
-
-    const newProduct = `<div id='product${element.id}' sql-id='${element.id}' onclick="addcart(${element.id})">
-      <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
+    const newProduct = `<div id='product${element.id}' sql-id='${
+      element.id
+    }' onclick="addcart(${element.id})">
+      <img id="productImage${element.id}" width="250" height="175" src='${
+      element.image
+    }'/>
       <p id="productName${element.id}" class="itemTitle">${element.name}</p>
-      <p id="productPrice${element.id}"class="itemPrice">R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+      <p id="productPrice${
+        element.id
+      }"class="itemPrice">R$ ${element.price.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}</p>
       <p id="productDelivery"class="itemDiscount">Sem Frete</p>
-      <p id="product${element.id}" class="itemDescription">${element.description}</p>
+      <p id="product${element.id}" class="itemDescription">${
+      element.description
+    }</p>
       </div> `;
     showcase.innerHTML += newProduct;
   });
@@ -307,24 +328,36 @@ async function addcart(id) {
   cartAtlzr();
   console.log(cart.length);
   const cartBox = document.getElementById("cart-box");
-  let counter = 0
+  let counter = 0;
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
-                            <img src="${element.image}" width="300px" height="180px">
+    const newCartItem = `<div id="product-placeholder${
+      element.id
+    }" class="product-placeholder">
+                            <img src="${
+                              element.image
+                            }" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
-                            <input id="nd-item${element.id}" type="hidden" value="${counter++}" name="cart">
+                            <p>Preço: R$ ${element.price.toLocaleString(
+                              "pt-BR",
+                              { style: "currency", currency: "BRL" }
+                            )}</p>
+                            <input id="remove${
+                              element.id
+                            }" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${
+      element.id
+    })'>
+                            <input id="nd-item${
+                              element.id
+                            }" type="hidden" value="${counter++}" name="cart">
                           </div>
                         </div>`;
     cartBox.innerHTML += newCartItem;
     subtotal();
-  
   });
-  counter = 0
+  counter = 0;
 }
 function subtotal() {
   let subtotal = "";
@@ -368,58 +401,95 @@ function clear() {
   cartAtlzr();
   subtotal();
 }
-function removeProduct(id){
-console.log('remover')
-const newCart = cart.filter((product) =>  product.id != id)
-localStorage.setItem("products", JSON.stringify(newCart));
-cart = newCart
-const placeholder = document.querySelector(`#product-placeholder${id}`)
-cartBox.removeChild(placeholder)
-console.log(newCart)
+function removeProduct(id) {
+  console.log("remover");
+  const newCart = cart.filter((product) => product.id != id);
+  localStorage.setItem("products", JSON.stringify(newCart));
+  cart = newCart;
+  const placeholder = document.querySelector(`#product-placeholder${id}`);
+  cartBox.removeChild(placeholder);
+  console.log(newCart);
 
-cartAtlzr();
-subtotal();
+  cartAtlzr();
+  subtotal();
 }
 
 // session control
 
-const email = document.querySelector('#email')
-const password = document.querySelector('#password')
-const btnLogin = document.querySelector('#loginSubmit')
+const email = document.querySelector("#email");
+const password = document.querySelector("#password");
+const btnLogin = document.querySelector("#loginSubmit");
 
-async function login(){
+async function login() {
   const loginData = {
-      email : email.value,
-      password: password.value
-  }
-console.log(email.value,password.value)
+    email: email.value,
+    password: password.value,
+  };
+  console.log(email.value, password.value);
   const myHeaders = {
-      method: 'POST',
-      credentials: 'include',
-      body: JSON.stringify(loginData),
-      headers:{
-          "content-type" : "application/json"
-      }
-  }
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(loginData),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
 
   console.log("logou");
-  let result
+  let result;
   try {
-      const test = await fetch('http://localhost:3000/clients/login/',myHeaders)
-      result = await test.json()
+    const test = await fetch("http://localhost:3000/login", myHeaders);
+    result = await test.json();
   } catch (error) {
-      
+    console.error(error);
   }
-  accessToken = result.accessToken
-  const sessions = await control(accessToken)
+  accessToken = result.accessToken;
+  const sessions = await control(accessToken);
 
-  console.log(accessToken)
-  return result
+  console.log(accessToken);
+  return result;
 }
-addEventListener('click',login)
+addEventListener("click", login);
 
-async function registration(){
-fetch
+const registerName = document.querySelector("");
+const registerEmail = document.querySelector("");
+const registerCPF = document.querySelector("");
+const registerPassword = document.querySelector("");
+const registerAddress = document.querySelector("");
+const registerTelephone = document.querySelector("");
+const registerZipCode = document.querySelector("");
 
-
+async function registration() {
+  const registrationData = {
+    data: {
+      name: registerName.value,
+      email: registerEmail.value,
+      cpf: registerCPF.value,
+      password: registerPassword.value,
+      address: registerAddress.value,
+      telephone: registerTelephone.value,
+      zip_code: registerZipCode.value,
+    },
+  };
+  console.log(
+    registerName.value,
+    registerEmail.value,
+    registerCPF.value,
+    registerPassword.value,
+    registerAddress.value,
+    registerTelephone.value,
+    registerZipCode.value
+  );
+  const myHeaders = {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(registrationData),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  await fetch("http://localhost:3000/registration", myHeaders)
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
 }
