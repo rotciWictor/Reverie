@@ -132,23 +132,36 @@ $("#loginButtonSubtext").click(function () {
 $("#cartLogo").click(function () {
   clearBoxOnly();
   const cartBox = document.getElementById("cart-box");
-  let counterPG = 0
+  let counterPG = 0;
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
-                            <img src="${element.image}" width="300px" height="180px">
+    const newCartItem = `<div id="product-placeholder${
+      element.id
+    }" class="product-placeholder">
+                            <img src="${
+                              element.image
+                            }" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
-                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
+                            <p>Preço: R$ ${element.price.toLocaleString(
+                              "pt-BR",
+                              { style: "currency", currency: "BRL" }
+                            )}</p>
+                            <input id="remove${
+                              element.id
+                            }" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${
+      element.id
+    })'>
+                            <input id="nd-item${
+                              element.id
+                            }" type="hidden" value="${counterPG++}" name="cart">
                           </div>
                         </div>`;
     cartBox.innerHTML += newCartItem;
   });
   subtotal();
-  counterPG = 0
+  counterPG = 0;
   $("#cartPG").fadeIn();
 
   $("#bottom").css("margin-top", "270px");
@@ -165,7 +178,7 @@ $("#cartLogo").click(function () {
 
 $("#loginSubmit").click(function () {
   $("#profilePG").fadeIn();
-  
+
   $(".defaultbg").css("background-size", "cover");
   $("#bottom").css("margin-top", "25px");
 
@@ -207,7 +220,7 @@ $("#profileData").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
-})
+});
 
 $("#profileQuit").click(function () {
   $("#homepage").fadeIn();
@@ -222,11 +235,9 @@ $("#profileQuit").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
-})
+});
 
-$("#profileOrderBtn").click(function () {
-
-})
+$("#profileOrderBtn").click(function () {});
 
 $("#profileCartBtn").click(function () {
   $("#cartPG").fadeIn();
@@ -241,7 +252,7 @@ $("#profileCartBtn").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
-})
+});
 
 $(".learnMoreBtn").click(function () {
   $("#aboutUsPG").fadeIn();
@@ -271,13 +282,23 @@ async function getProducts() {
     showcase.removeChild(showcase.firstChild);
   }
   products.forEach((element) => {
-
-    const newProduct = `<div id='product${element.id}' sql-id='${element.id}' onclick="addcart(${element.id})">
-      <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
+    const newProduct = `<div id='product${element.id}' sql-id='${
+      element.id
+    }' onclick="addcart(${element.id})">
+      <img id="productImage${element.id}" width="250" height="175" src='${
+      element.image
+    }'/>
       <p id="productName${element.id}" class="itemTitle">${element.name}</p>
-      <p id="productPrice${element.id}"class="itemPrice">R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+      <p id="productPrice${
+        element.id
+      }"class="itemPrice">R$ ${element.price.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}</p>
       <p id="productDelivery"class="itemDiscount">Sem Frete</p>
-      <p id="product${element.id}" class="itemDescription">${element.description}</p>
+      <p id="product${element.id}" class="itemDescription">${
+      element.description
+    }</p>
       </div> `;
     showcase.innerHTML += newProduct;
   });
@@ -307,24 +328,36 @@ async function addcart(id) {
   cartAtlzr();
   console.log(cart.length);
   const cartBox = document.getElementById("cart-box");
-  let counter = 0
+  let counter = 0;
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
-                            <img src="${element.image}" width="300px" height="180px">
+    const newCartItem = `<div id="product-placeholder${
+      element.id
+    }" class="product-placeholder">
+                            <img src="${
+                              element.image
+                            }" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
-                            <input id="nd-item${element.id}" type="hidden" value="${counter++}" name="cart">
+                            <p>Preço: R$ ${element.price.toLocaleString(
+                              "pt-BR",
+                              { style: "currency", currency: "BRL" }
+                            )}</p>
+                            <input id="remove${
+                              element.id
+                            }" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${
+      element.id
+    })'>
+                            <input id="nd-item${
+                              element.id
+                            }" type="hidden" value="${counter++}" name="cart">
                           </div>
                         </div>`;
     cartBox.innerHTML += newCartItem;
     subtotal();
-  
   });
-  counter = 0
+  counter = 0;
 }
 function subtotal() {
   let subtotal = "";
@@ -368,59 +401,101 @@ function clear() {
   cartAtlzr();
   subtotal();
 }
-function removeProduct(id){
-console.log('remover')
-const newCart = cart.filter((product) =>  product.id != id)
-localStorage.setItem("products", JSON.stringify(newCart));
-cart = newCart
-const placeholder = document.querySelector(`#product-placeholder${id}`)
-cartBox.removeChild(placeholder)
-console.log(newCart)
+function removeProduct(id) {
+  console.log("remover");
+  const newCart = cart.filter((product) => product.id != id);
+  localStorage.setItem("products", JSON.stringify(newCart));
+  cart = newCart;
+  const placeholder = document.querySelector(`#product-placeholder${id}`);
+  cartBox.removeChild(placeholder);
+  console.log(newCart);
 
-cartAtlzr();
-subtotal();
+  cartAtlzr();
+  subtotal();
 }
 
 // session control
 
-const jwtDecode = require("./jwt-decode");
+const email = document.querySelector("#login-email");
+const password = document.querySelector("#login-password");
+const btnLogin = document.querySelector("#loginSubmit");
 
-let accessToken = '';
-let api_url = '/api';
-const divLogin = document.getElementById("div-login");
-const formLogin = document.getElementById("form-login");
-// const buttonGetUsers = document.getElementById("button-get-users");
-// const buttonDeleteToken = document.getElementById("button-delete-token");
-const pStatus = document.getElementById("login-status");
-
-let showLoginPanel = (bShow) => {
-  bShow ? divLogin.style.display = "flex" : divLogin.style.display = "none";
-}
-
-formLogin.onsubmit = async e => {
-  e.preventDefault();
-  const loginDetails = await login({ email: formLogin.email.value, password: formLogin.password.value });
-  console.log(loginDetails);
-  if (loginDetails.error) {
-    pStatus.innerText = loginDetails.error;
-    return;
-  }
-  accessToken = loginDetails.accessToken;
-  const jwtDecoded = jwtDecode(accessToken);
-  pStatus.innerHTML = `Conectado!`;
-  showLoginPanel(false);
-}
-
-async function login(data) {
-  //console.log(JSON.stringify(data));
-  const res = await fetch(`${api_url}/auth/login`, {
-    method: 'POST',
-    credentials:'include',
-    cache:'no-cache',
+async function login() {
+  const loginData = {
+    email: email.value,
+    password: password.value,
+  };
+  console.log(email.value, password.value);
+  const myHeaders = {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(loginData),
     headers: {
-      'Content-Type': 'application/json'
+      "content-type": "application/json",
     },
-    body: JSON.stringify(data)
-  });
-  return await res.json();
+  };
+
+  console.log("logou");
+  let result;
+  try {
+    const test = await fetch("http://localhost:3000/login", myHeaders);
+    result = await test.json();
+  } catch (error) {
+    console.error(error);
+  }
+  accessToken = result.accessToken;
+  const sessions = await control(accessToken);
+
+  console.log(accessToken);
+  return result;
 }
+btnLogin.addEventListener("click", login);
+
+const registerName = document.querySelector("#name");
+const registerEmail = document.querySelector("#email");
+const registerCPF = document.querySelector("#cpf");
+const registerPassword = document.querySelector("#password");
+const registerAddress = document.querySelector("#address");
+const registerTelephone = document.querySelector("#phone");
+const registerZipCode = document.querySelector("#zip-code");
+const registerConfirmPassword = document.querySelector("#confirm-password");
+const registerBtn = document.querySelector('#registerSubmit')
+
+async function registration() {
+  if(registerPassword.value != registerConfirmPassword.value){
+    return alert("Senhas diferem")
+  }
+  const registrationData = {
+    data: {
+      name: registerName.value,
+      email: registerEmail.value,
+      cpf: registerCPF.value,
+      password: registerPassword.value,
+      address: registerAddress.value,
+      telephone: registerTelephone.value,
+      zip_code: registerZipCode.value,
+    },
+  };
+  console.log(
+    registerName.value,
+    registerEmail.value,
+    registerCPF.value,
+    registerPassword.value,
+    registerAddress.value,
+    registerTelephone.value,
+    registerZipCode.value
+  );
+  const myHeaders = {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(registrationData),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  await fetch("http://localhost:3000/registration", myHeaders)
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+}
+registerBtn.addEventListener("click", registration);
