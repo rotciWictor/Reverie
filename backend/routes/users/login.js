@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await dbConnection.query(
-      `SELECT * FROM users WHERE email = ${email}`
+      `SELECT email FROM users WHERE email = ${email}`
     );
     const hashPassword = user[0].password;
 
