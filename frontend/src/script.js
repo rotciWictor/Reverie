@@ -534,11 +534,16 @@ function subtotal() {
 }
 
 var counterpedidos = 0;
+const date = new Date();
+const timeElapsed = Date.now();
+const today = new Date(timeElapsed);
+today.toLocaleDateString();
+
 
 function closecart() {
   console.log(subtotalgeral);
   counterpedidos ++;
-  document.getElementById("pedidos").innerHTML += "\n Pedido Número: " + counterpedidos + "    Valor: " + subtotalgeral.toFixed(2); 
+  document.getElementById("pedidos").innerHTML += "\n Pedido Número: " + counterpedidos + "    Valor: " + subtotalgeral.toFixed(2) + " Data: " + today; 
   clear();
 } 
 
