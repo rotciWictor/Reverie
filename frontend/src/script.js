@@ -538,7 +538,7 @@ var counterpedidos = 0;
 function closecart() {
   console.log(subtotalgeral);
   counterpedidos ++;
-  document.getElementById("pedidos").innerHTML += "Pedido Número: " + counterpedidos + "    Valor: " + subtotalgeral.toFixed(2); 
+  document.getElementById("pedidos").innerHTML += "\n Pedido Número: " + counterpedidos + "    Valor: " + subtotalgeral.toFixed(2); 
   clear();
 } 
 
