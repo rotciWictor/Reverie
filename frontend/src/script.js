@@ -449,24 +449,24 @@ async function addcart(id) {
   const response = await fetch(`http://localhost:3000/read/addcart?id=${id}`);
   const product = await response.json();
 
-const item = {data:{
-    product_id:product[0].id
+// const item = {data:{
+//     product_id:product[0].id
 
-}
-}
+// }
+// }
 
-  const myHeaders = {
-    method: "POST",
-    credentials: "include",
-    body: JSON.stringify(item),
-    headers: {
-      "content-type": "application/json",
-    },
-  };
-  await fetch("http://localhost:3000/orders/itens", myHeaders)
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+//   const myHeaders = {
+//     method: "POST",
+//     credentials: "include",
+//     body: JSON.stringify(item),
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//   };
+//   await fetch("http://localhost:3000/orders/itens", myHeaders)
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.error(error));
 
   cart.push(product[0]);
   
