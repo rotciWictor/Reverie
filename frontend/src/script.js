@@ -533,11 +533,14 @@ function subtotal() {
   return subtotalgeral;
 }
 
+var counterpedidos = 0;
+
 function closecart() {
   console.log(subtotalgeral);
-  document.getElementById("pedidos").innerHTML += "Pedido Número: " + " " + "Valor: " + subtotalgeral.toFixed(2); 
+  counterpedidos ++;
+  document.getElementById("pedidos").innerHTML += "Pedido Número: " + counterpedidos + "    Valor: " + subtotalgeral.toFixed(2); 
   clear();
-}
+} 
 
 
 
