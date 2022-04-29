@@ -581,24 +581,23 @@ h1 {
 #cart {
     display: flex;
     left: 50px;
-    width: 600px;
+    width: 700px;
     margin-top: 200px;
     margin-left: 50px;
 }
 #cart-box{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    width: 1200px;
-    height: 525px;
+    width: 50vw;
+    height: 120vh;
     overflow: scroll;
-    overflow-y: hidden;
     background-color:#88687c;
-    overflow-x: hidden;
     border-radius: 12px;
-
-
+}
+#cart-box::-webkit-scrollbar {
+    display: none;
 }
 
 .product-placeholder{
@@ -609,10 +608,10 @@ h1 {
     width: 48vw;
     height: 30vh;
     font-family: "Forum", cursive;
+    font-weight: bolder;
+    padding-top: 1vh;
 }
-.product-placeholder > p{
-    margin-right: 15px;
-}
+
 
 
 #checkout-box {
@@ -648,6 +647,7 @@ h1 {
     font-family: 'Poppins', sans-serif;
     margin-top:100px;
     margin-left: 105px;
+    visibility: hidden;
 }
 #finish-cart {
     width: 150px;
@@ -722,6 +722,7 @@ h1 {
             font-size: 24px;
             box-shadow: 0;
             border-style: none;
+            margin-top: 20px;
 
 }
 
