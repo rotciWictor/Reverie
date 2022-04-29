@@ -1033,5 +1033,15 @@ h1 {
           margin-bottom: 50px;
       }
 
- 
+ #wrong{
+     color:red
+ }
+
+ #greeting{
+     position:absolute;
+     top:30vh;
+     left:680px;
+     color:whitesmoke;
+     font-size: xx-large;
+ }
 

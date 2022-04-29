@@ -121,7 +121,7 @@ $("#aboutUsBtn").click(function () {
   $("#contactPG").fadeOut();
 });
 
-$("#profileLogo").click(function () {
+$("#profileLogo").click( async function () {
   $("#loginPG").fadeIn();
   $("#bottom").css("margin-top", "1000px");
   $(".defaultbg").css("background-size", "cover");
@@ -148,6 +148,77 @@ $("#profileLogo").click(function () {
   $("#cartPG").fadeOut();
   $("#orderPG").fadeOut();
   $("#contactPG").fadeOut();
+  
+
+    const cookie = await window.cookieStore.get("Cookie")
+    const token = await cookie
+    console.log(token.value)
+    const userLogged = JSON.parse(window.atob(token.value.split('.')[1]))
+    console.log(userLogged)
+
+  if(token.value){
+  $("#profilePG").fadeIn();
+
+  $(".defaultbg").css("background-size", "cover");
+  $("#bottom").css("margin-top", "50px");
+
+  $("#orderPG").fadeOut();
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+
+  async function getInfos(id){
+  const response = await fetch(`http://localhost:3000/login/getinfos?id=${id}`)
+  const user = await response.json()
+
+  console.log(user)
+
+  const greeting = document.querySelector('#greeting')
+  const profileEmail = document.querySelector("#profileEmail")
+  const profilePhone = document.querySelector("#profilePhone")
+  const profileAddress = document.querySelector("#profileAddress")
+  const profileZipcode = document.querySelector("#profilezipcode")
+    
+  greeting.innerHTML = `Olá ${userLogged.name}`
+  profileEmail.innerHTML = user.email
+  profileAddress.innerHTML = user.address
+  profilePhone.innerHTML = user.phone
+  profileZipcode.innerHTML = user.zip_code
+  }
+  }
+// }else{
+  // $("#loginPG").fadeIn();
+  // $("#bottom").css("margin-top", "1000px");
+  // $(".defaultbg").css("background-size", "cover");
+  // $("#homeBtn").css(
+  //   "color", "white"
+  // )
+  // $("#catalogueBtn").css(
+  //   "color", "white"
+  // )
+  // $("#aboutUsBtn").css(
+  //   "color", "white"
+  // )
+  // $("#contactBtn").css(
+  //   "color", "white"
+  // )
+
+  // $("#aboutUsPG").fadeOut();
+  // $("#productPG").fadeOut();
+  // $("#hackerProductPG").fadeOut();
+  // $("#catalogue").fadeOut();
+  // $("#homepage").fadeOut();
+  // $("#registerPG").fadeOut();
+  // $("#profilePG").fadeOut();
+  // $("#cartPG").fadeOut();
+  // $("#orderPG").fadeOut();
+  // $("#contactPG").fadeOut();
+  // }
 });
 
 $("#loginButtonSubtext").click(function () {
@@ -175,7 +246,7 @@ $("#cartLogo").click(function () {
   : [];
 
   cart.forEach((element) => {
-    console.log(element);
+  
     const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
                             <img src="${
                               element.image
@@ -218,22 +289,22 @@ $("#cartLogo").click(function () {
   )
 });
 
-$("#loginSubmit").click(function () {
-  $("#profilePG").fadeIn();
+// $("#loginSubmit").click(function () {
+//   $("#profilePG").fadeIn();
 
-  $(".defaultbg").css("background-size", "cover");
-  $("#bottom").css("margin-top", "50px");
+//   $(".defaultbg").css("background-size", "cover");
+//   $("#bottom").css("margin-top", "50px");
 
-  $("#orderPG").fadeOut();
-  $("#registerPG").fadeOut();
-  $("#homepage").fadeOut();
-  $("#cartPG").fadeOut();
-  $("#loginPG").fadeOut();
-  $("#productPG").fadeOut();
-  $("#catalogue").fadeOut();
-  $("#contactPG").fadeOut();
-  $("#aboutUsPG").fadeOut();
-});
+//   $("#orderPG").fadeOut();
+//   $("#registerPG").fadeOut();
+//   $("#homepage").fadeOut();
+//   $("#cartPG").fadeOut();
+//   $("#loginPG").fadeOut();
+//   $("#productPG").fadeOut();
+//   $("#catalogue").fadeOut();
+//   $("#contactPG").fadeOut();
+//   $("#aboutUsPG").fadeOut();
+// });
 
 $("#registerSubmit").click(function () {
   $("#profilePG").fadeIn();
@@ -390,7 +461,7 @@ async function addcart(id) {
   
   localStorage.setItem("products", JSON.stringify(cart));
   
-  console.log("carrinho", cart);
+
  
   cartAtlzr();
 
@@ -403,7 +474,7 @@ async function addcart(id) {
   const cartBox = document.getElementById("cart-box");
  
   cart.forEach((element) => {
-    console.log(element);
+   
     const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
                             <img src="${
                               element.image
@@ -423,7 +494,7 @@ async function addcart(id) {
 }
 function subtotal() {
   let subtotal = "";
-  console.log(cart.length);
+
   if (cart.length != 0) {
     subtotal = cart.reduce(
       function (acumulador, valorAtual, index, array) {
@@ -436,7 +507,7 @@ function subtotal() {
   }
 
   showedSubtotal = document.getElementById("subtotal");
-  console.log("subtotal", subtotal);
+  
   if (subtotal != "") {
     showedSubtotal.innerHTML = `R$ ${subtotal.price.toFixed(2)}`;
   } else {
@@ -445,7 +516,7 @@ function subtotal() {
 }
 const limpezaPesada = document.querySelector("#clear-cart");
 const cartBox = document.querySelector("#cart-box");
-console.log(limpezaPesada);
+
 limpezaPesada.addEventListener("click", clear);
 
 function clearBoxOnly() {
@@ -454,7 +525,7 @@ function clearBoxOnly() {
   }
 }
 function clear() {
-  console.log("clear");
+
   localStorage.clear();
   cart = [];
   while (cartBox.firstChild) {
@@ -464,13 +535,13 @@ function clear() {
   subtotal();
 }
 function removeProduct(id) {
-  console.log("remover");
+
   const newCart = cart.filter((product) => product.id != id);
   localStorage.setItem("products", JSON.stringify(newCart));
   cart = newCart;
   const placeholder = document.querySelector(`#product-placeholder${id}`);
   cartBox.removeChild(placeholder);
-  console.log("cart",cart);
+  
 
   cartAtlzr();
   subtotal();
@@ -487,7 +558,6 @@ async function login() {
     email: email.value,
     password: password.value,
   };
-  console.log(email.value, password.value);
   const myHeaders = {
     method: "POST",
     credentials: "include",
@@ -497,7 +567,7 @@ async function login() {
     },
   };
 
-  console.log("logou");
+ 
   let result;
   try {
     const test = await fetch("http://localhost:3000/login", myHeaders);
@@ -505,10 +575,29 @@ async function login() {
   } catch (error) {
     console.error(error);
   }
-  accessToken = result.accessToken;
-  const sessions = await control(accessToken);
+  // accessToken = result.accessToken;
+  // const sessions = await control(accessToken);
 
-  console.log(accessToken);
+
+  if(result === true){
+   $("#profilePG").fadeIn();
+
+  $(".defaultbg").css("background-size", "cover");
+  $("#bottom").css("margin-top", "50px");
+
+  $("#orderPG").fadeOut();
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#cartPG").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+  }else{
+  let wrong = document.querySelector('#wrong')
+  wrong.innerHTML = result
+  }
   return result;
 }
 btnLogin.addEventListener("click", login);
