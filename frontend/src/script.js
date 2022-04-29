@@ -172,33 +172,19 @@ $("#cartLogo").click(function () {
   let counterPG = 0;
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder${
-      element.id
-    }" class="product-placeholder">
-                            <img src="${
-                              element.image
-                            }" width="300px" height="180px">
+    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
+                            <img src="${element.image}" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
-                            <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price.toLocaleString(
-                              "pt-BR",
-                              { style: "currency", currency: "BRL" }
-                            )}</p>
-                            <input id="remove${
-                              element.id
-                            }" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${
-      element.id
-    })'>
-                            <input id="nd-item${
-                              element.id
-                            }" type="hidden" value="${counterPG++}" name="cart">
+                            <p>Preço: R$ ${element.price.toLocaleString("pt-BR",{ style: "currency", currency: "BRL" })}</p>
+                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
+                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
                           </div>
                         </div>`;
     cartBox.innerHTML += newCartItem;
   });
   subtotal();
-  counterPG = 0;
+ 
   $("#cartPG").fadeIn();
   $(".defaultbg").css("background-size", "cover");
   $("#registerPG").fadeOut();
@@ -366,18 +352,11 @@ async function getProducts() {
     const newProduct = `<div id='product${element.id}' sql-id='${element.id}' class="product-div" onclick="addcart(${element.id})">
       <img id="productImage${element.id}" width="250" height="175" src='${element.image}'/>
       <p id="productName${element.id}" class="itemTitle">${element.name}</p>
-      <p id="productPrice${
-        element.id
-      }"class="itemPrice">R$ ${element.price.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    })}</p>
+      <p id="productPrice${element.id}"class="itemPrice">R$ ${element.price}</p>
       <p id="productDelivery"class="itemDiscount">Sem Frete</p>
-      <p id="product${element.id}" class="itemDescription">${
-      element.description
-    }</p>
+      <p id="product${element.id}" class="itemDescription">${element.description}</p>
       </div> `;
-    showcase.innerHTML += newProduct;
+  showcase.innerHTML += newProduct;
   });
 }
 
@@ -398,37 +377,26 @@ const data = JSON.parse(localStorage.getItem("products"));
 async function addcart(id) {
   const response = await fetch(`http://localhost:3000/read/addcart?id=${id}`);
   const product = await response.json();
-  console.log(product[0]);
+  console.log("product[0]",product[0]);
   cart.push(product[0]);
+  
   localStorage.setItem("products", JSON.stringify(cart));
+  
   console.log("carrinho", cart);
+ 
   cartAtlzr();
-  console.log(cart.length);
+
   const cartBox = document.getElementById("cart-box");
   let counter = 0;
   cart.forEach((element) => {
     console.log(element);
-    const newCartItem = `<div id="product-placeholder${
-      element.id
-    }" class="product-placeholder">
-                            <img src="${
-                              element.image
-                            }" width="300px" height="180px">
+    const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
+                            <img src="${element.image}" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
-                            <p>Quantidade: 1</p>
-                            <p>Preço: R$ ${element.price.toLocaleString(
-                              "pt-BR",
-                              { style: "currency", currency: "BRL" }
-                            )}</p>
-                            <input id="remove${
-                              element.id
-                            }" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${
-      element.id
-    })'>
-                            <input id="nd-item${
-                              element.id
-                            }" type="hidden" value="${counter++}" name="cart">
+                            <p>Preço: R$ ${element.price.toLocaleString("pt-BR",{ style: "currency", currency: "BRL" })}</p>
+                            <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
+                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
                           </div>
                         </div>`;
     cartBox.innerHTML += newCartItem;
@@ -464,10 +432,10 @@ function subtotal() {
     showedSubtotal.innerHTML = subtotal;
   }
 }
-const limpezaPesada = document.querySelector("#clear-cart");
+const clearCart = document.querySelector("#clear-cart");
 const cartBox = document.querySelector("#cart-box");
-console.log(limpezaPesada);
-limpezaPesada.addEventListener("click", clear);
+
+clearCart.addEventListener("click", clear);
 
 function clearBoxOnly() {
   while (cartBox.firstChild) {
@@ -475,7 +443,6 @@ function clearBoxOnly() {
   }
 }
 function clear() {
-  console.log("clear");
   localStorage.clear();
   cart = [];
   while (cartBox.firstChild) {
@@ -484,6 +451,8 @@ function clear() {
   cartAtlzr();
   subtotal();
 }
+
+
 function removeProduct(id) {
   console.log("remover");
   const newCart = cart.filter((product) => product.id != id);
