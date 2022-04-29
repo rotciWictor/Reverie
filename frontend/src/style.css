@@ -830,11 +830,16 @@ h1 {
     align-items: center;
     justify-content: center;
     column-gap: 100px;
+}
 
+#history{
+    text-align: center;
 }
 
 #pedidos {
-    font-size: x-large;
+    font-size: larger;
+    width: 1098px;
+    height: 405px;
 }
 
 #aboutUsFirstTxt {
