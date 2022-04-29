@@ -206,7 +206,7 @@
                     <h2>Subtotal:</h2>
                     <h3 id="subtotal"></h3>
                     <input id='clear-cart' type="button" class="learMoreBtn" value="Limpar Carrinho" onclick='clear()'>
-                    <input id='finish-cart' type="button" class="learMoreBtn" value="Fechar Pedido" onclick=>
+                    <input id='finish-cart' type="button" class="learMoreBtn" value="Fechar Pedido" onclick='closecart()'>
                 </div>
             </aside>
         </section>
@@ -215,6 +215,7 @@
             <div id="orderBox">
                 <div id="orderInner">
                     <h2>Pacotes encomendados</h2>
+                    <textarea id="pedidos"></textarea>
 
                 </div>
                 <div id="priceBox">
@@ -349,9 +350,9 @@
                 <h2>Fale Conosco:</h2>
                 <p>Preencha o formulário abaixo e nos deixe uma mensagem!</p> <br>
                 <form>
-                    <input placeholder="Nome" class="contactBox" type="text" id="name" name="name"><br>
-                    <input placeholder="E-Mail" class="contactBox" type="text" id="email" name="email"><br>
-                    <input placeholder="Mensagem" id="messageBox" type="text" name="email"><br>
+                    <input placeholder="Nome" class="contactBox" type="text" id="namecontact" name="name"><br>
+                    <input placeholder="E-Mail" class="contactBox" type="text" id="emailcontact" name="email"><br>
+                    <input placeholder="Mensagem" id="messageBox" type="text" name="messagecontact"><br>
                     <br>
                 </form>
                 <button id="messageSubmitBtn">Enviar</button>

@@ -503,6 +503,9 @@ async function addcart(id) {
   });
 
 }
+
+var subtotalgeral;
+
 function subtotal() {
   let subtotal = "";
 
@@ -518,13 +521,26 @@ function subtotal() {
   }
 
   showedSubtotal = document.getElementById("subtotal");
-  
+  subtotalgeral = subtotal.price;
+
+
+
   if (subtotal != "") {
     showedSubtotal.innerHTML = `R$ ${subtotal.price.toFixed(2)}`;
   } else {
     showedSubtotal.innerHTML = subtotal;
   }
+  return subtotalgeral;
 }
+
+function closecart() {
+  console.log(subtotalgeral);
+  document.getElementById("pedidos").innerHTML += "Pedido Número: " + " " + "Valor: " + subtotalgeral.toFixed(2); 
+  clear();
+}
+
+
+
 const limpezaPesada = document.querySelector("#clear-cart");
 const cartBox = document.querySelector("#cart-box");
 
