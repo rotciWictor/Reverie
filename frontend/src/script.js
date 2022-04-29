@@ -334,9 +334,10 @@ $("#profileQuit").click(function () {
   $("#cartPG").fadeOut();
   $("#productPG").fadeOut();
   $("#catalogue").fadeOut();
-
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
+  $(".cleardata").html("");
+  clear();
 });
 
 $("#profileOrderBtn").click(function () {
