@@ -833,6 +833,10 @@ h1 {
 
 }
 
+#pedidos {
+    font-size: x-large;
+}
+
 #aboutUsFirstTxt {
     width: 400px;
     height: 300px;
