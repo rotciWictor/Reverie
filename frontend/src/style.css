@@ -603,14 +603,16 @@ h1 {
 
 .product-placeholder{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     align-items: center;
     background-color: #88687c;
     width: 48vw;
     height: 30vh;
     font-family: "Forum", cursive;
 }
-
+.product-placeholder > p{
+    margin-right: 15px;
+}
 
 
 #checkout-box {
@@ -624,9 +626,16 @@ h1 {
     justify-content: center;
     background-color:#88687c;
     width: 350px;
-    height: 525px;
+    height: 300px;
     font-family: "Forum", cursive;
     color: white;
+    border-radius: 12px;
+}
+#checkout-box > h3{
+    margin-left: 110px;
+}
+#checkout-box > h2{
+    margin-left: 130px;
 }
 
 #clear-cart {
@@ -637,7 +646,7 @@ h1 {
     border-style: none;
     border-color: rgb(147, 94, 178);
     font-family: 'Poppins', sans-serif;
-    margin-top: 345px;
+    margin-top:100px;
     margin-left: 105px;
 }
 #finish-cart {
@@ -648,7 +657,7 @@ h1 {
     border-style: none;
     border-color: rgb(147, 94, 178);
     font-family: 'Poppins', sans-serif;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 105px;
 
 }
@@ -703,7 +712,7 @@ h1 {
     margin-bottom: 25px;
 }
 
-#remove61 {
+.remove {
     width: 253px;
             height: 43px;
             background-color: #ba9a8e;
@@ -716,7 +725,7 @@ h1 {
 
 }
 
-#remove61:hover{
+.remove:hover{
     cursor: pointer;
     background-color: #6a5851;
             background-image: linear-gradient(315deg, #525567 0%, #5b4151 74%);
