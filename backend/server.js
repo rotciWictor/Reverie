@@ -7,6 +7,7 @@ const read = require("./routes/products/read");
 // const update = require("./routes/products/update");
 const login = require("./routes/users/login")
 const registration = require("./routes/users/registration")
+const orders = require("./routes/users/orders")
 const cors = require("cors");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
@@ -25,6 +26,7 @@ app.use("/read", read);
 
 app.use("/login",login);
 app.use("/registration",registration);
+app.use("/orders",orders);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`);

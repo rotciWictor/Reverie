@@ -449,6 +449,25 @@ async function addcart(id) {
   const response = await fetch(`http://localhost:3000/read/addcart?id=${id}`);
   const product = await response.json();
 
+const item = {data:{
+    product_id:product[0].id
+
+}
+}
+
+  const myHeaders = {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(item),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  await fetch("http://localhost:3000/orders/itens", myHeaders)
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+
   cart.push(product[0]);
   
   localStorage.setItem("products", JSON.stringify(cart));
@@ -537,6 +556,66 @@ function removeProduct(id) {
 
   cartAtlzr();
   subtotal();
+}
+
+async function checkout(){
+    const subtotal = document.querySelector('#subtotal')
+
+    const cookie = await window.cookieStore.get("Cookie")
+    const token = await cookie
+    const userLogged = JSON.parse(window.atob(token.value.split('.')[1]))
+
+  $("#loginPG").fadeIn();
+  $("#bottom").css("margin-top", "1000px");
+  $(".defaultbg").css("background-size", "cover");
+  $("#homeBtn").css(
+    "color", "white"
+  )
+  $("#catalogueBtn").css(
+    "color", "white"
+  )
+  $("#aboutUsBtn").css(
+    "color", "white"
+  )
+  $("#contactBtn").css(
+    "color", "white"
+  )
+
+  if(token){
+    $("#orderPG").fadeIn();
+
+    $("#cartPG").fadeOut();
+    $("#bottom").css("margin-top", "270px");
+    $(".defaultbg").css("background-size", "cover");
+    $("#registerPG").fadeOut();
+    $("#homepage").fadeOut();
+    $("#loginPG").fadeOut();
+    $("#profilePG").fadeOut();
+    $("#productPG").fadeOut();
+    $("#catalogue").fadeOut();
+    $("#contactPG").fadeOut();
+    $("#aboutUsPG").fadeOut();
+  }
+
+  const order = cart
+  localStorage.clear();
+  cart= []
+
+data = {data:{
+  quantity:"",
+  subtotal:"",
+  user_id:"",
+
+
+
+
+}}
+
+
+
+  
+
+  
 }
 
 // session control
@@ -657,7 +736,7 @@ async function getInfos(id){
   const profileName = document.querySelector("#profileName")
   const profileCPF = document.querySelector("#registerNumber")
     
-  greeting.innerHTML = `Olá ${userLogged.name}`
+  greeting.innerHTML = `Olá ${user[0].name}`
   profileEmail.innerHTML = user[0].email
   profileAddress.innerHTML = user[0].address
   profilePhone.innerHTML = user[0].telephone

@@ -52,11 +52,12 @@ router.post("/", async (req, res) => {
 
 router.get("/getinfos", async (req, res) => {
   const id = req.param('id')
-  const user = await dbConnection.query(`SELECT * FROM users WHERE id = ${id}`);
+  const user = await dbConnection.query(`SELECT * FROM users WHERE id = $1 `,[id]);
 
   console.log(user);
 
   res.json(user);
 });
+
 
 module.exports = router;
