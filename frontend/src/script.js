@@ -172,24 +172,7 @@ $("#profileLogo").click( async function () {
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
 
-  async function getInfos(id){
-  const response = await fetch(`http://localhost:3000/login/getinfos?id=${id}`)
-  const user = await response.json()
-
-  console.log(user)
-
-  const greeting = document.querySelector('#greeting')
-  const profileEmail = document.querySelector("#profileEmail")
-  const profilePhone = document.querySelector("#profilePhone")
-  const profileAddress = document.querySelector("#profileAddress")
-  const profileZipcode = document.querySelector("#profilezipcode")
-    
-  greeting.innerHTML = `Olá ${userLogged.name}`
-  profileEmail.innerHTML = user.email
-  profileAddress.innerHTML = user.address
-  profilePhone.innerHTML = user.phone
-  profileZipcode.innerHTML = user.zip_code
-  }
+  getInfos(userLogged.id)
   }
 // }else{
   // $("#loginPG").fadeIn();
@@ -659,3 +642,26 @@ async function registration() {
     .catch((error) => console.error(error));
 }
 registerBtn.addEventListener("click", registration);
+
+async function getInfos(id){
+  const response = await fetch(`http://localhost:3000/login/getinfos?id=${id}`)
+  const user = await response.json()
+
+  console.log(user)
+
+  const greeting = document.querySelector('#greeting')
+  const profileEmail = document.querySelector("#profileEmail")
+  const profilePhone = document.querySelector("#profilePhone")
+  const profileAddress = document.querySelector("#profileAddress")
+  const profileZipcode = document.querySelector("#profilezipcode")
+  const profileName = document.querySelector("#profileName")
+  const profileCPF = document.querySelector("#registerNumber")
+    
+  greeting.innerHTML = `Olá ${userLogged.name}`
+  profileEmail.innerHTML = user[0].email
+  profileAddress.innerHTML = user[0].address
+  profilePhone.innerHTML = user[0].telephone
+  profileZipcode.innerHTML = user[0].zip_code
+  profileCPF.innerHTML = user[0].cpf
+  profileName.innerHTML = user[0].name
+  }
