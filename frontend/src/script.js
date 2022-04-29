@@ -326,7 +326,7 @@ $("#profileQuit").click(function () {
   $("#homepage").fadeIn();
   $("#bottom").css("margin-top", "990px");
   $(".defaultbg").css("background-size", "contain");
-
+  $.cookie("Cookie", null, { path: '/' });
   $("#orderPG").fadeOut();
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
@@ -334,6 +334,7 @@ $("#profileQuit").click(function () {
   $("#cartPG").fadeOut();
   $("#productPG").fadeOut();
   $("#catalogue").fadeOut();
+
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
 });
