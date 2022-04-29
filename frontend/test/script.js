@@ -139,7 +139,7 @@ $("#cartLogo").click(function () {
                             <img src="${element.image}" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
-                            <p>Quantidade: 1</p>
+
                             <p>Preço: R$ ${element.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                             <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
                             <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">

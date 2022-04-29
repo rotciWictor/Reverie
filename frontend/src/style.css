@@ -647,7 +647,7 @@ h1 {
     font-family: 'Poppins', sans-serif;
     margin-top:100px;
     margin-left: 105px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 #finish-cart {
     width: 150px;

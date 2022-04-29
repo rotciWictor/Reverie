@@ -167,24 +167,32 @@ $("#loginButtonSubtext").click(function () {
 });
 
 $("#cartLogo").click(function () {
-  clearBoxOnly();
-  const cartBox = document.getElementById("cart-box");
-  let counterPG = 0;
+ 
+  clearBoxOnly()
+
+  cart = localStorage.getItem("products")
+  ? JSON.parse(localStorage.getItem("products"))
+  : [];
+
   cart.forEach((element) => {
     console.log(element);
     const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
-                            <img src="${element.image}" width="300px" height="180px">
+                            <img src="${
+                              element.image
+                            }" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Preço: R$ ${element.price.toLocaleString("pt-BR",{ style: "currency", currency: "BRL" })}</p>
                             <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
-                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
+                            <input id="nd-item${element.id}" type="hidden" value="0" name="cart">
                           </div>
                         </div>`;
+
     cartBox.innerHTML += newCartItem;
+    subtotal();
   });
-  subtotal();
- 
+
+
   $("#cartPG").fadeIn();
   $(".defaultbg").css("background-size", "cover");
   $("#registerPG").fadeOut();
@@ -371,13 +379,13 @@ function cartAtlzr() {
   cartSign.innerHTML = cart.length;
 }
 cartAtlzr();
-localStorage.setItem("products", JSON.stringify(cart));
+// localStorage.setItem("products", JSON.stringify(cart));
 const data = JSON.parse(localStorage.getItem("products"));
 
 async function addcart(id) {
   const response = await fetch(`http://localhost:3000/read/addcart?id=${id}`);
   const product = await response.json();
-  console.log("product[0]",product[0]);
+
   cart.push(product[0]);
   
   localStorage.setItem("products", JSON.stringify(cart));
@@ -386,29 +394,32 @@ async function addcart(id) {
  
   cartAtlzr();
 
+  $("#cartPopUp").fadeIn()
+  $("#cartPopUp").css("display", "flex")
+  setTimeout(() => {
+    $("#cartPopUp").fadeOut()
+  }, 2500);
+
   const cartBox = document.getElementById("cart-box");
-  let counter = 0;
+ 
   cart.forEach((element) => {
     console.log(element);
     const newCartItem = `<div id="product-placeholder${element.id}" class="product-placeholder">
-                            <img src="${element.image}" width="300px" height="180px">
+                            <img src="${
+                              element.image
+                            }" width="300px" height="180px">
                           <div id="product-data">
                             <p>${element.name}</p>
                             <p>Preço: R$ ${element.price.toLocaleString("pt-BR",{ style: "currency", currency: "BRL" })}</p>
                             <input id="remove${element.id}" class="remove" type="button" value="Remover Produto" onclick='removeProduct(${element.id})'>
-                            <input id="nd-item${element.id}" type="hidden" value="${counterPG++}" name="cart">
+                            <input id="nd-item${element.id}" type="hidden" value="0" name="cart">
                           </div>
                         </div>`;
+
     cartBox.innerHTML += newCartItem;
     subtotal();
-    
-      $("#cartPopUp").fadeIn()
-      $("#cartPopUp").css("display", "flex")
-      setTimeout(() => {
-        $("#cartPopUp").fadeOut()
-      }, 2500);
   });
-  counter = 0;
+
 }
 function subtotal() {
   let subtotal = "";
@@ -432,10 +443,10 @@ function subtotal() {
     showedSubtotal.innerHTML = subtotal;
   }
 }
-const clearCart = document.querySelector("#clear-cart");
+const limpezaPesada = document.querySelector("#clear-cart");
 const cartBox = document.querySelector("#cart-box");
-
-clearCart.addEventListener("click", clear);
+console.log(limpezaPesada);
+limpezaPesada.addEventListener("click", clear);
 
 function clearBoxOnly() {
   while (cartBox.firstChild) {
@@ -443,6 +454,7 @@ function clearBoxOnly() {
   }
 }
 function clear() {
+  console.log("clear");
   localStorage.clear();
   cart = [];
   while (cartBox.firstChild) {
@@ -451,8 +463,6 @@ function clear() {
   cartAtlzr();
   subtotal();
 }
-
-
 function removeProduct(id) {
   console.log("remover");
   const newCart = cart.filter((product) => product.id != id);
@@ -460,7 +470,7 @@ function removeProduct(id) {
   cart = newCart;
   const placeholder = document.querySelector(`#product-placeholder${id}`);
   cartBox.removeChild(placeholder);
-  console.log(newCart);
+  console.log("cart",cart);
 
   cartAtlzr();
   subtotal();
