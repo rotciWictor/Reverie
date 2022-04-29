@@ -50,13 +50,8 @@ router.post("/", async (req, res) => {
     );
     const hashPassword = user[0].password;
 
-    // console.log(user)
-
-
     const matchs = await bcrypt.compare(password,hashPassword);
   
- 
-
     if (!matchs) {
       return res.status(400).json("Senha incorreta");
     }
@@ -64,7 +59,14 @@ router.post("/", async (req, res) => {
     data.id = user[0].id;
     data.name = user[0].name;
     data.email = user[0].email;
-    console.log(data);
+
+    let sendname = user[0].name;
+    let sendemail = user[0].email;
+    let sendcpf = user[0].cpf;
+    let sendaddress = user[0].address;
+    let sendzipcode = user[0].zip_code;
+    let sendtelephone = user[0].telephone;
+    
     let tokens = JWTTokens(data);
       console.log(tokens)
     res.cookie("Cookie", tokens.accessToken, {
@@ -72,7 +74,13 @@ router.post("/", async (req, res) => {
       secure: true,
     });
     res.status(200);
-    res.send("logado")
+    res.send(`
+    document.getElementById("profileName").innerHTML = ${sendname};
+    document.getElementById("profileEmail").innerHTML = ${sendemail};
+    document.getElementById("registerNumber").innerHTML = ${sendcpf};
+    document.getElementById("profileAddress").innerHTML = ${sendaddress};
+    document.getElementById("profilePhone").innerHTML = ${sendtelephone};
+    document.getElementById("profilezipcode").innerHTML = ${sendzipcode}`)
   } catch (error) {
     console.error(error);
   }
