@@ -73,6 +73,10 @@ h1 {
     display: none;  
 }
 
+#orderPG {
+    display: none;
+}
+
 #productPG {
     display: none;
 }
@@ -86,6 +90,8 @@ h1 {
     flex-direction: column;
     row-gap: 50px;
 }
+
+
 
 .header {
     width: 100%;
@@ -144,6 +150,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     margin-left: 50%;
+    margin-top: 40px;
     font-size: 18px;
     font-family: 'Forum', cursive;
     color: white;
@@ -455,6 +462,23 @@ h1 {
          #loginButtonSubtext:hover {
              cursor: pointer;
          }
+
+#orderBox {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 20px;
+    width: 1100px;
+    height: 500px;
+    background-color: #88687c;
+    margin-left: 50px;
+    margin-top: 100px;
+    border-radius: 12px;
+    font-family: "Forum", cursive;
+    color: white;   
+}
+
+         
 #profileInnerData {
     display: flex;
     justify-content: space-between;
@@ -567,10 +591,12 @@ h1 {
     justify-content: center;
     align-items: flex-start;
     width: 1200px;
-    height: 500px;
+    height: 525px;
     overflow: scroll;
+    overflow-y: hidden;
     background-color:#88687c;
     overflow-x: hidden;
+    border-radius: 12px;
 
 
 }
@@ -579,9 +605,10 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: #88687c;
     width: 48vw;
     height: 30vh;
+    font-family: "Forum", cursive;
 }
 
 
@@ -597,7 +624,7 @@ h1 {
     justify-content: center;
     background-color:#88687c;
     width: 350px;
-    height: 460px;
+    height: 525px;
     font-family: "Forum", cursive;
     color: white;
 }
@@ -613,6 +640,24 @@ h1 {
     margin-top: 345px;
     margin-left: 105px;
 }
+#finish-cart {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(147, 94, 178);
+    color: white;
+    border-style: none;
+    border-color: rgb(147, 94, 178);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    margin-left: 105px;
+
+}
+#finish-cart:hover {
+    cursor: pointer;
+    background-color: rgb(72, 46, 86);
+
+}
+
 #clear-cart:hover {
     cursor: pointer;
     background-color: rgb(72, 46, 86);
@@ -899,7 +944,8 @@ h1 {
     font-size: medium;
     position: absolute;
     z-index: 1;
-    top:1.5vh;
+    margin-top: 20px;
+    top: 1.5vh;
     left: 84vw;
 }
     

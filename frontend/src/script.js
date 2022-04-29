@@ -18,6 +18,7 @@ $("#homeBtn").click(function () {
 
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
+  $("#orderPG").fadeOut();
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
   $("#productPG").fadeOut();
@@ -48,6 +49,7 @@ $("#mainHeaderLogo").click(function () {
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
   $("#productPG").fadeOut();
+  $("#orderPG").fadeOut();
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
@@ -79,6 +81,7 @@ $("#catalogueBtn").click(function () {
   $("#cartPG").fadeOut();
   $("#productPG").fadeOut();
   $("#contactPG").fadeOut();
+  $("#orderPG").fadeOut();
   $("#aboutUsPG").fadeOut();
 });
 
@@ -88,35 +91,6 @@ $("#contactBtn").click(function () {
   });
 });
 
-$("#product1").click(function () {
-  $("#productPG").fadeIn();
-  $("#hackerProductPG").css("display", "flex");
-
-  $("#runnerProductPG").fadeOut();
-  $("#catalogue").fadeOut();
-  $("#homepage").fadeOut();
-  $("#registerPG").fadeOut();
-  $("#loginPG").fadeOut();
-  $("#profilePG").fadeOut();
-  $("#cartPG").fadeOut();
-  $("#contactPG").fadeOut();
-  $("#aboutUsPG").fadeOut();
-});
-
-$("#product2").click(function () {
-  $("#productPG").fadeIn();
-  $("#runnerProductPG").css("display", "flex");
-
-  $("#hackerProductPG").fadeOut();
-  $("#catalogue").fadeOut();
-  $("#homepage").fadeOut();
-  $("#registerPG").fadeOut();
-  $("#loginPG").fadeOut();
-  $("#profilePG").fadeOut();
-  $("#cartPG").fadeOut();
-  $("#contactPG").fadeOut();
-  $("#aboutUsPG").fadeOut();
-});
 
 $("#aboutUsBtn").click(function () {
   $("#aboutUsPG").fadeIn();
@@ -143,6 +117,7 @@ $("#aboutUsBtn").click(function () {
   $("#loginPG").fadeOut();
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
+  $("#orderPG").fadeOut();
   $("#contactPG").fadeOut();
 });
 
@@ -171,6 +146,7 @@ $("#profileLogo").click(function () {
   $("#registerPG").fadeOut();
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
+  $("#orderPG").fadeOut();
   $("#contactPG").fadeOut();
 });
 
@@ -187,6 +163,7 @@ $("#loginButtonSubtext").click(function () {
   $("#profilePG").fadeOut();
   $("#cartPG").fadeOut();
   $("#contactPG").fadeOut();
+  $("#orderPG").fadeOut();
 });
 
 $("#cartLogo").click(function () {
@@ -232,6 +209,7 @@ $("#cartLogo").click(function () {
   $("#catalogue").fadeOut();
   $("#contactPG").fadeOut();
   $("#aboutUsPG").fadeOut();
+  $("#orderPG").fadeOut();
   $("#homeBtn").css(
     "color", "white"
   )
@@ -252,6 +230,7 @@ $("#loginSubmit").click(function () {
   $(".defaultbg").css("background-size", "cover");
   $("#bottom").css("margin-top", "50px");
 
+  $("#orderPG").fadeOut();
   $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
   $("#cartPG").fadeOut();
@@ -267,6 +246,7 @@ $("#registerSubmit").click(function () {
   $(".defaultbg").css("background-size", "cover");
   $("#bottom").css("margin-top", "25px");
 
+  $("#orderPG").fadeOut();
   $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
   $("#cartPG").fadeOut();
@@ -282,6 +262,8 @@ $("#profileData").click(function () {
   $(".defaultbg").css("background-size", "cover");
   $("#bottom").css("margin-top", "25px");
 
+
+  $("#orderPG").fadeOut();
   $("#registerPG").fadeOut();
   $("#homepage").fadeOut();
   $("#cartPG").fadeOut();
@@ -297,6 +279,7 @@ $("#profileQuit").click(function () {
   $("#bottom").css("margin-top", "990px");
   $(".defaultbg").css("background-size", "contain");
 
+  $("#orderPG").fadeOut();
   $("#registerPG").fadeOut();
   $("#loginPG").fadeOut();
   $("#profilePG").fadeOut();
@@ -307,7 +290,23 @@ $("#profileQuit").click(function () {
   $("#aboutUsPG").fadeOut();
 });
 
-$("#profileOrderBtn").click(function () {});
+$("#profileOrderBtn").click(function () {
+  $("#orderPG").fadeIn();
+
+
+  $("#cartPG").fadeOut();
+  $("#bottom").css("margin-top", "270px");
+  $(".defaultbg").css("background-size", "cover");
+  $("#registerPG").fadeOut();
+  $("#homepage").fadeOut();
+  $("#loginPG").fadeOut();
+  $("#profilePG").fadeOut();
+  $("#productPG").fadeOut();
+  $("#catalogue").fadeOut();
+  $("#contactPG").fadeOut();
+  $("#aboutUsPG").fadeOut();
+
+});
 
 $("#profileCartBtn").click(function () {
   $("#cartPG").fadeIn();
@@ -498,95 +497,6 @@ function removeProduct(id) {
   subtotal();
 }
 
-// // session control
-
-// const email = document.querySelector("#login-email");
-// const password = document.querySelector("#login-password");
-// const btnLogin = document.querySelector("#loginSubmit");
-
-// async function login() {
-//   const loginData = {
-//     email: email.value,
-//     password: password.value,
-//   };
-//   console.log(email.value, password.value);
-//   const myHeaders = {
-//     method: "POST",
-//     credentials: "include",
-//     body: JSON.stringify(loginData),
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//   };
-
-//   console.log("logou");
-//   let result;
-//   try {
-//     const test = await fetch("http://localhost:3000/login", myHeaders);
-//     result = await test.json();
-//   } catch (error) {
-//     console.error(error);
-//   }
-//   accessToken = result.accessToken;
-//   const sessions = await control(accessToken);
-
-//   console.log(accessToken);
-//   return result;
-// }
-// btnLogin.addEventListener("click", login);
-
-
-
-// const registerName = document.querySelector("#name");
-// const registerEmail = document.querySelector("#email");
-// const registerCPF = document.querySelector("#cpf");
-// const registerPassword = document.querySelector("#password");
-// const registerAddress = document.querySelector("#address");
-// const registerTelephone = document.querySelector("#phone");
-// const registerZipCode = document.querySelector("#zip-code");
-// const registerConfirmPassword = document.querySelector("#confirm-password");
-// const registerBtn = document.querySelector('#registerSubmit')
-
-
-// async function registration() {
-//   if (registerPassword.value != registerConfirmPassword.value) {
-//     return alert("Senhas diferem");
-//   }
-//   const registrationData = {
-//     data: {
-//       name: registerName.value,
-//       email: registerEmail.value,
-//       cpf: registerCPF.value,
-//       password: registerPassword.value,
-//       address: registerAddress.value,
-//       telephone: registerTelephone.value,
-//       zip_code: registerZipCode.value,
-//     },
-//   };
-//   console.log(
-//     registerName.value,
-//     registerEmail.value,
-//     registerCPF.value,
-//     registerPassword.value,
-//     registerAddress.value,
-//     registerTelephone.value,
-//     registerZipCode.value
-//   );
-//   const myHeaders = {
-//     method: "POST",
-//     credentials: "include",
-//     body: JSON.stringify(registrationData),
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//   };
-//   await fetch("http://localhost:3000/registration", myHeaders)
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.error(error));
-// }
-// registerBtn.addEventListener("click", registration);
-
 // session control
 
 const email = document.querySelector("#login-email");
@@ -632,11 +542,11 @@ const registerAddress = document.querySelector("#address");
 const registerTelephone = document.querySelector("#phone");
 const registerZipCode = document.querySelector("#zip-code");
 const registerConfirmPassword = document.querySelector("#confirm-password");
-const registerBtn = document.querySelector("#registerSubmit");
+const registerBtn = document.querySelector('#registerSubmit')
 
 async function registration() {
-  if (registerPassword.value != registerConfirmPassword.value) {
-    return alert("Senhas diferem");
+  if(registerPassword.value != registerConfirmPassword.value){
+    return alert("Senhas diferem")
   }
   const registrationData = {
     data: {
@@ -672,42 +582,3 @@ async function registration() {
     .catch((error) => console.error(error));
 }
 registerBtn.addEventListener("click", registration);
-
-// async function registration() {
-//   if(registerPassword.value != registerConfirmPassword.value){
-//     return alert("Senhas diferem")
-//   }
-//   const registrationData = {
-//     data: {
-//       name: registerName.value,
-//       email: registerEmail.value,
-//       cpf: registerCPF.value,
-//       password: registerPassword.value,
-//       address: registerAddress.value,
-//       telephone: registerTelephone.value,
-//       zip_code: registerZipCode.value,
-//     },
-//   };
-//   console.log(
-//     registerName.value,
-//     registerEmail.value,
-//     registerCPF.value,
-//     registerPassword.value,
-//     registerAddress.value,
-//     registerTelephone.value,
-//     registerZipCode.value
-//   );
-//   const myHeaders = {
-//     method: "POST",
-//     credentials: "include",
-//     body: JSON.stringify(registrationData),
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//   };
-//   await fetch("http://localhost:3000/registration", myHeaders)
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.error(error));
-// }
-// registerBtn.addEventListener("click", registration);
