@@ -328,6 +328,15 @@ $("#profileCartBtn").click(function () {
 
 // })
 
+
+
+$("#messageSubmitBtn").click(function () {
+  alert("Mensagem enviada. Obrigada");
+  $(".contactBox").val('');
+  $("#messageBox").val('');
+});
+
+
 $(".learnMoreBtn").click(function () {
   $("#aboutUsPG").fadeIn();
   $("#bottom").css("margin-top", "200px");
